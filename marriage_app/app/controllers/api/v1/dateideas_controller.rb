@@ -19,7 +19,7 @@ class DateideasController < ApplicationController
     @dateidea = Dateidea.new(dateidea_params)
 
     if @dateidea.save
-      render json: @dateidea, status: :created, location: @dateidea
+      render json: @dateidea, status: :created
     else
       render json: @dateidea.errors, status: :unprocessable_entity
     end
