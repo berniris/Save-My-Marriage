@@ -1,7 +1,6 @@
 import React, { Component }  from 'react';
 import Parallax from 'react-springy-parallax';
 import '../App.css';
-import App from '../App';
 import Animate from 'react-simple-animate';
 import First from './First';
 import Second from './Second';
