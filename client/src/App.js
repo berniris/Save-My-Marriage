@@ -3,7 +3,8 @@ import {Switch, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import './App.css';
-import Login from './components/auth/Login'
+// import Login from './components/auth/Login';
+import Dateideas from './components/Dateideas'
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
@@ -43,14 +44,10 @@ class App extends Component {
       }
 
   render() {
-    console.log(this.state.fights)
-    console.log(this.state.currentUser)
     return (
 <main>
   <div>
-   <main>
     <Route exact path="/" render={() => (<Home/>)}/>
-    {/* <div>{JSON.stringify(this.state.fights)}</div> */}
     <Route path="/:id" render={() => (
               <Nav
                 user={this.state.user}
@@ -58,7 +55,13 @@ class App extends Component {
                 updateCurrentUser={this.updateCurrentUser}
               />)}
             />
-</main>
+    <Route
+      exact
+        path="/dateideas"
+        render={({ match }) => (
+          <Dateideas/>
+          )}
+        />
 </div>
 </main>
     );

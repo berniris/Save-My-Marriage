@@ -17,3 +17,5 @@ user.email = 'user@bananas.com'
 user.password = 'bananaBro'
 user.password_confirmation = 'bananaBro'
 user.save
+
+dateideas = Dateidea.create([{ body: 'Making a picnic' }, { body: 'Going to a winery'}, { body: 'Going horseback riding'}])

@@ -1,0 +1,2 @@
+class Dateidea < ApplicationRecord
+end
