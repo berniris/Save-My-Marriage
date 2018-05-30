@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import './App.css';
 // import Login from './components/auth/Login';
-import Dateideas from './components/Dateideas'
+import DateIdeas from './components/date_ideas/DateIdeas';
+import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
@@ -13,9 +14,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      fights: []
+      fights: [],
+      dateideas: []
     }
-// this.login = this.login.bind(this);
+    this.getDateIdeas = this.getDateIdeas.bind(this);
   }
 
 // login () {
@@ -35,12 +37,27 @@ class App extends Component {
 //     })
 //   }
 
-  componentDidMount() {
-    fetch(`${BASE_URL}/fights`)
+    getDateIdeas() {
+      axios.get('http://localhost:3001/api/v1/dateideas.json')
+    .then(response => {
+      // console.log(response)
+      this.setState({
+        dateideas: response.data
+      })
+    })
+    .catch(error => console.log(error))
+  }
+
+  getFigths () {
+  fetch(`${BASE_URL}/fights`)
     .then(resp => resp.json())
     .then(data => this.setState({
       fights: data.fights
     }));
+  }
+
+  componentDidMount() {
+  this.getDateIdeas()
       }
 
   render() {
@@ -59,7 +76,7 @@ class App extends Component {
       exact
         path="/dateideas"
         render={({ match }) => (
-          <Dateideas/>
+          <DateIdeas dateideas={this.state.dateideas}/>
           )}
         />
 </div>
