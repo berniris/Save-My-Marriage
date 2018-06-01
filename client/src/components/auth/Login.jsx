@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
 
-handleSubmit = event => {
-  event.preventDefault();
-  console.log({target: event.target})
-  var formData = new formData();
-  formData.append("username",this.inputNode1.value)
-  formData.append("username",this.inputNode1.value)
+    this.state = {
+      email: '',
+      password: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
 
-  fetch()
+handleSubmit (e) {
+  e.preventDefault();
+  this.props.onSubmit(this.state);
+  this.setState({
+    email: '',
+    password: ''
+  })
+  // this.props.history.push('/')
+}
+
+onChange(e) {
+  this.setState({
+    [e.target.name]: e.target.value
+  })
 }
 
 
@@ -17,39 +33,33 @@ render() {
   return (
     <div>
         <h1 style={{marginTop: "20vh", marginBottom: "5vh"}}>
-          Argument Management System
+          Login
         </h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email: </label>
           <br />
           <input
+            value={this.state.email}
             name="email"
-            id="email"
             type="email"
+            onChange={this.onChange}
           />
           <br /><br />
           <label htmlFor="password">Password:</label>
           <br />
           <input
+            value={this.state.password}
             name="password"
-            id="password"
             type="password"
+            onChange={this.onChange}
           />
-          </form>
-          <br />
           <button
-            onClick={this.login}
-          >
-              Login
+            type="submit"
+            value="Submit"
+            >
+            Submit
           </button>
-        <br />
-        <button
-          onClick={this.getFights}
-          style={{marginTop: "10vh"}}
-          >
-          Login
-        </button>
-
+          </form>
       </div>
 
   );
