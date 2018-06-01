@@ -13,8 +13,8 @@ class Home extends Component {
   return (
 
   <div>
-  <img src="https://i.imgur.com/D5YIHjg.png" alt="logo" className="logo"></img>
   <Nav/>
+  <img src="https://i.imgur.com/D5YIHjg.png" alt="logo" className="logo"></img>
   <div className="left-pane">
     </div>
       <div className="right-pane">

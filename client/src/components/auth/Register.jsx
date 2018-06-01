@@ -31,8 +31,8 @@ onChange(e) {
 
 render() {
   return (
-    <div>
-        <h1 style={{marginTop: "20vh", marginBottom: "5vh"}}>
+    <div className="container">
+        <h1 className="header">
           Register
         </h1>
         <form onSubmit={this.handleSubmit}>

@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
+ scope '/api' do
+
+  # namespace :api do
+  #   namespace :v1 do
+
   resources :dateideas
-  resources :users
+  resources :fights
+  post 'user_token' => 'user_token#create'
 end
+
+
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :fights
-  post 'users/login', to: 'users#login'
-end

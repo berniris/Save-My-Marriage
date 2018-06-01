@@ -34,8 +34,10 @@ changePage(newPage) {
 
  <div className="menu">
     <ul>
-       <li><Link to="/login">LOGIN</Link></li>
-       <li><Link to="/register">REGISTER</Link></li>
+       <li><Link to="/login">Login</Link></li>
+       <li><Link to="/register">Register</Link></li>
+       <li><Link to="/therapist">Find A Therapist</Link></li>
+       <li><Link to="/tips">Free Resources</Link></li>
     </ul>
  </div>
 
