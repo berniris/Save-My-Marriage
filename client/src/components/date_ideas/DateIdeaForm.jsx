@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 
 class DateIdeaForm extends Component {
   constructor(props) {
@@ -19,20 +19,8 @@ onChange(e) {
 
 handleSubmit(e) {
   e.preventDefault();
-  console.log(this.state);
-    axios.post( 'http://localhost:3001/api/v1/dateideas',
-      {
-        dateidea: {
-          body: this.state.body
-          }
-        }
-      )
-    .then(response => {
-      console.log(response)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+  this.props.onSubmit()
+
     }
 
 render () {

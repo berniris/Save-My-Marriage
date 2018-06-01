@@ -3,8 +3,10 @@ import {Route} from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import './App.css';
-// import Login from './components/auth/Login';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 import DateIdeas from './components/date_ideas/DateIdeas';
+import TokenService from './services/TokenService';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -15,27 +17,13 @@ class App extends Component {
 
     this.state = {
       fights: [],
-      dateideas: []
+      dateideas: [],
+      user: null
     }
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
     this.getDateIdeas = this.getDateIdeas.bind(this);
   }
-
-// login () {
-//     const email = $("#email").val()
-//     const password = $("#password").val()
-//     const request = {"auth": {"email": email, "password": password}}
-//     console.log(request)
-//     $.ajax({
-//       url: "http://localhost:3000/api/user_token",
-//       type: "POST",
-//       data: request,
-//       dataType: "json",
-//       success: function (result) {
-//         console.log(result)
-//         localStorage.setItem("jwt", result.jwt)
-//       }
-//     })
-//   }
 
     getDateIdeas() {
       axios.get('http://localhost:3001/api/v1/dateideas.json')
@@ -50,11 +38,31 @@ class App extends Component {
 
   getFigths () {
   fetch(`${BASE_URL}/fights`)
-    .then(resp => resp.json())
+    .then(response => response.json())
     .then(data => this.setState({
       fights: data.fights
     }));
   }
+
+  login(data) {
+ axios('http://localhost:3001/users/login', {
+  method: "POST",
+  data
+}).then(response => {
+  TokenService.save(response.data.token);
+}).then(console.log(data))
+.catch(err => console.log(`err: ${err}`));
+}
+
+  register(data) {
+ axios('http://localhost:3001/users/', {
+  method: "POST",
+  data
+}).then(response => {
+  TokenService.save(response.data.token);
+}).then(console.log(data))
+.catch(err => console.log(`err: ${err}`));
+}
 
   componentDidMount() {
   this.getDateIdeas()
@@ -79,6 +87,18 @@ class App extends Component {
           <DateIdeas dateideas={this.state.dateideas}/>
           )}
         />
+          <Route path="/login" render={({ history }) => (
+              <Login
+                user={this.state.user}
+                onSubmit={this.login}
+              />)}
+            />
+             <Route path="/register" render={({ history }) => (
+              <Register
+                user={this.state.user}
+                onSubmit={this.register}
+              />)}
+            />
 </div>
 </main>
     );
