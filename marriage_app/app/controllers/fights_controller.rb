@@ -1,6 +1,5 @@
 class FightsController < ApplicationController
-  # before_action :authenticate_user
-  # before_action :set_fight, only: [:show, :update, :destroy]
+
   def index
     render json: {
       fights: [

@@ -9,20 +9,18 @@ class Login extends Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
 handleSubmit (e) {
   e.preventDefault();
-  this.props.onSubmit(this.state);
   this.setState({
     email: '',
     password: ''
   })
-  // this.props.history.push('/')
 }
 
-onChange(e) {
+handleChange(e) {
   this.setState({
     [e.target.name]: e.target.value
   })
@@ -30,9 +28,10 @@ onChange(e) {
 
 
 render() {
+  console.log(this.props.login)
   return (
-    <div>
-        <h1 style={{marginTop: "20vh", marginBottom: "5vh"}}>
+    <div className="container">
+        <h1 className="header">
           Login
         </h1>
         <form onSubmit={this.handleSubmit}>
@@ -42,7 +41,8 @@ render() {
             value={this.state.email}
             name="email"
             type="email"
-            onChange={this.onChange}
+            onChange={this.handleChange}
+            autoComplete="off"
           />
           <br /><br />
           <label htmlFor="password">Password:</label>
@@ -51,11 +51,12 @@ render() {
             value={this.state.password}
             name="password"
             type="password"
-            onChange={this.onChange}
+            onChange={this.handleChange}
           />
           <button
             type="submit"
             value="Submit"
+            onClick={this.props.login}
             >
             Submit
           </button>

@@ -6,14 +6,14 @@ class DateIdeas extends Component {
   constructor(props) {
     super (props)
     this.state = {
-      body: '',
+      dateideas: [],
     }
     this.createDateIdea = this.createDateIdea.bind(this)
     this.deleteDateIdea = this.deleteDateIdea.bind(this)
   }
 
 createDateIdea() {
-     axios.post( 'http://localhost:3001/api/v1/dateideas',
+     axios.post( 'http://localhost:3001/dateideas',
       {
         dateidea: {
           body: this.state.body
@@ -31,7 +31,7 @@ createDateIdea() {
 }
 
 deleteDateIdea () {
-    axios.delete (`http://localhost:3001/api/v1/dateideas/{props.dateideas.id}`, {
+    axios.delete (`http://localhost:3001/dateideas/{props.dateideas.id}`, {
       method: 'DELETE',
     }).then(response => {
       console.log(response)
@@ -44,20 +44,21 @@ deleteDateIdea () {
   }
 
 render() {
-  console.log(this.props.key)
+  const show = this.props.isLoggedIn ? this.props.dateideas.map(dateidea => {
 
-        return (
-            <div className="">
-                {this.props.dateideas.map( dateidea => {
-                    return (
-                      <div className="" key={dateidea.id}>
-                          <h4>{dateidea.body}</h4>
-                          <button onClick={this.deleteDateIdea}>Delete</button>
-                      </div>
-                  )
-                })}
-                <div><DateIdeaForm onSubmit={this.createDateIdea}/></div>
+        return
+        <div>
+            <p key={dateidea.id}>Idea:{dateidea.body}</p>
+            <button onClick={this.deleteDateIdea}>Delete</button>
             </div>
+                }) : "UNAUTHORIZED"
+                    return (
+
+                <div className="container">
+                <DateIdeaForm onSubmit={this.createDateIdea}/>
+                {show}
+                </div>
+
         )
     }
 

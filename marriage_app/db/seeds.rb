@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 dateideas = Dateidea.create([{ body: 'Making a picnic' }, { body: 'Going to a winery'}, { body: 'Going horseback riding'}])
+users = User.create({email: 'bc@gmail.com', password:'gustave'})
