@@ -14,6 +14,7 @@ class Login extends Component {
 
 handleSubmit (e) {
   e.preventDefault();
+  this.props.onSubmit(this.state);
   this.setState({
     email: '',
     password: ''
@@ -28,7 +29,7 @@ handleChange(e) {
 
 
 render() {
-  console.log(this.props.login)
+  console.log(this.props.handleLogin)
   return (
     <div className="container">
         <h1 className="header">
@@ -56,7 +57,7 @@ render() {
           <button
             type="submit"
             value="Submit"
-            onClick={this.props.login}
+
             >
             Submit
           </button>

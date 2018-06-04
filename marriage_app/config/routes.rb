@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :dateideas
   resources :fights
+  post 'dateideas' => 'dateideas#create'
   post 'user_token' => 'user_token#create'
 end
 
