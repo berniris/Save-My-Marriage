@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import Home from './components/Home';
+import BetterDoctor from './components/BetterDoctor';
+import Resources from './components/Resources';
 import Nav from './components/Nav';
 import Logo from './components/Logo';
 import './App.css';
@@ -17,33 +19,35 @@ class App extends Component {
     super(props);
 
     this.state = {
+      user: null,
       fights: [],
       dateideas: [],
       email: '',
       password: '',
       isLoggedIn: null
     }
-    this.login = this.login.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.isLoggedIn = this.isLoggedIn.bind(this);
     this.register = this.register.bind(this);
     this.getDateIdeas = this.getDateIdeas.bind(this);
     this.getFights = this.getFights.bind(this);
+    this.logout = this.logout.bind(this);
+    this.createDateIdea = this.createDateIdea.bind(this);
   }
 
 
     getDateIdeas() {
-    console.log('getting dates');
     const jwt = localStorage.getItem("jwt")
+    console.log(jwt)
     const init = {
       headers: {"Authorization": `Bearer ${jwt}`}
     }
     fetch(`${BASE_URL}/api/dateideas`, init)
     .then(res => res.json())
     .then(data => this.setState({
-      dateideas: data,
+      dateideas: data
     }))
-    // .then(console.log(this.state.dateideas))
-    .then(console.log(this.state.dateideas))
     .catch(err => err)
     console.log(this.isLoggedIn())
   }
@@ -52,16 +56,15 @@ class App extends Component {
   fetch(`${BASE_URL}/api/fights`)
     .then(response => response.json())
     .then(data => this.setState({
-      fights: data,
+      fights: data
     }))
-    .then(console.log(this.state.fights))
     .catch(err => err);
     return this.state.fights
   }
 
-  login() {
+  login(input) {
     const url = `${BASE_URL}/api/user_token`;
-    const body = {"auth": {"email": this.state.email, "password": this.state.password} }
+    const body = {"auth": {"email": input.email, "password": input.password}}
     const init = { method: 'POST',
                    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
                    mode: 'cors',
@@ -84,6 +87,11 @@ class App extends Component {
     return res;
   }
 
+
+  handleLogin(input) {
+    console.log(this.login(input))
+  }
+
   register(data) {
  axios('http://localhost:3001/api/user_token', {
   method: "POST",
@@ -94,7 +102,42 @@ class App extends Component {
 .catch(err => console.log(`err: ${err}`));
 }
 
+handleLogout() {
+  this.logout();
+  this.setState({
+    user: null
+  })
+  this.props.history.push('/')
+}
+
+logout() {
+  localStorage.removeItem('jwt')
+  this.setState({
+    isLoggedIn: false,
+    dateideas: []
+  })
+}
+
+createDateIdea() {
+     axios.post( 'http://localhost:3001/dateideas',
+      {
+        dateidea: {
+          body: this.state.body
+          }
+        }
+      )
+    .then(response => {
+      console.log(response)
+      const dateidea = [this.state.body, response.data]
+      this.setState({dateidea})
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
   componentDidMount() {
+  this.createDateIdea()
   this.getDateIdeas()
   this.getFights()
   this.isLoggedIn()
@@ -120,21 +163,23 @@ class App extends Component {
       exact
         path="/dateideas"
         render={({ match }) => (
-          <DateIdeas dateideas={this.state.dateideas} isLoggedIn={this.isLoggedIn}/>
+          <DateIdeas dateideas={this.state.dateideas} isLoggedIn={this.isLoggedIn} createDateIdea={this.createDateIdea}/>
           )}
         />
           <Route path="/login" render={({ history }) => (
               <Login
                 user={this.state.user}
-                login={this.login}
+                history={history}
+                onSubmit={this.handleLogin}
               />)}
             />
              <Route path="/register" render={({ history }) => (
               <Register
-                user={this.state.user}
                 onSubmit={this.register}
               />)}
             />
+            <Route exact path="/counseling" render={() => (<BetterDoctor/>)}/>
+            <Route exact path="/tips" render={() => (<Resources/>)}/>
 </div>
 </main>
     );

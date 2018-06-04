@@ -19,7 +19,7 @@ onChange(e) {
 
 handleSubmit(e) {
   e.preventDefault();
-  this.props.onSubmit()
+  this.props.onSubmit(this.state.body)
 
     }
 
@@ -27,7 +27,7 @@ render () {
  return (
 
         <form onSubmit={this.handleSubmit}>
-        <div>
+        <div className="idea-form">
           <label htmlFor="dateidea">Propose a date idea for others:</label>
             <input
                     value={this.state.body}
@@ -35,7 +35,7 @@ render () {
                     name="body"
                     onChange={this.onChange} />
           </div>
-            <button type="submit" value="Submit">Submit Date Idea</button>
+            <button type="submit" value="Submit">Submit Idea</button>
         </form>
     )
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Give+You+Glory|Kristi|Lobster+Two|Niconne|Pinyon+Script');
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Give+You+Glory|Kristi|Oswald|Lobster+Two|Niconne|Pinyon+Script');
 
 /* "Home" */
 
@@ -15,8 +15,10 @@
 }
 
 .banner-img {
-  width: 100%;
-  height: 70vh;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 90vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,39 +27,56 @@
 }
 
 .second-banner-img {
-  width: 80%;
-  height: 90vh;
+  width: 60%;
+  height: 70vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid #000000;
   margin-left: auto;
   margin-right: auto;
 }
 
-home-button {
+button, .home-button {
   font-size: 50px;
-  font-family: 'Alex Brush', cursive;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
   background-color: #ffffff;
-  width: 300px;
+  width: 400px;
   height: 100px;
-/*  text-transform: uppercase;*/
-/*  letter-spacing: 10px;*/
-  margin-top: 20%;
+  letter-spacing: 8px;
   opacity: 1;
   border: 1px solid #ffffff;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  flex: 1;
+}
+
+button {
+  width: 400px;
+  height: 100px;
+}
+
+.idea-form {
+  margin-top: 100px;
+  flex: 1;
+
+}
+
+* {
+  outline: none;
 }
 
 /* Layout */
 
 .container {
+  font-family: 'Oswald', sans-serif;
   display: flex;
   padding: 0;
   margin-top: 50px;
+  height: 300px;
   justify-content: center;
+  text-transform: uppercase;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .header {
@@ -88,6 +107,8 @@ z-index: 100;
 height: 70px;
 top: 55%;
 color: #ffffff;
+font-family: 'Oswald', sans-serif;
+text-transform: uppercase;
 }
 
 .menu ul {
@@ -108,6 +129,10 @@ color: #ffffff;
   padding: 20px;
 }
 
+.container li > a:nth-child {
+  color: #000000;
+}
+
 /* Links */
 
 a:link {
@@ -126,26 +151,38 @@ a:active {
   color: #ffffff;
   text-decoration: none;
 }
+
 /*Date Component*/
 
 .date-idea {
   background-color: #ffffff;
   width: 50%;
   height: 50%;
-  font-size: 40px;
+  font-size: 30px;
+  text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 200px;
+  opacity: .8;
 
 }
 
+.date-ideas {
+  color: #000000;
+}
+
+.idea {
+  font-family: 'Oswald', sans-serif;
+  margin: 5px;
+}
+
 input {
-  background-color: black;
-  color: #fff;
+  background-color: white;
+  color: #000000;
   border: none;
   outline: none;
   width: 150px;
   padding: 15px;
+  margin: 5px;
 }
 
 
