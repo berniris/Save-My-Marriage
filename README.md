@@ -38,6 +38,8 @@ The app will use parallax scrolling for navigation but I will also include a fix
 Users will have to create an account and login to buy and save products and store argument details. Post MVP will be to allow users to save all content in their profile (conversation tips, date ideas, etc.)  All other content besides ability to save arguments and buy products will be public. 
 
 # Wireframes
+![IMG_1913.jpg](https://git.generalassemb.ly/storage/user/9780/files/0c7ea7c4-4345-11e8-9886-948df9e2eca1)
+
 
 # MVP
 
