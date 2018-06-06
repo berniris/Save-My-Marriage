@@ -39,7 +39,7 @@ Users will have to create an account and login to buy and save products and stor
 
 # Wireframes
 ![IMG_1913.jpg](https://github.com/berniris/Save-My-Marriage/blob/master/IMG_1913.jpg)
-![IMG_1914.jpg](https://github.com/berniris/Save-My-Marriage/blob/master/IMG_1914.jpg)
+![wireframe2.jpg](https://github.com/berniris/Save-My-Marriage/blob/master/wireframe2.jpg)
 
 
 # MVP
