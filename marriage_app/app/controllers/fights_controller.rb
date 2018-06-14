@@ -1,4 +1,5 @@
 class FightsController < ApplicationController
+
   def index
     render json: {
       fights: [
