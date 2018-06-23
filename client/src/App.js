@@ -1,83 +1,64 @@
+
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
+import './App.css';
+
 import Home from './components/Home';
-import BetterDoctor from './components/BetterDoctor';
-import Resources from './components/Resources';
 import Nav from './components/Nav';
 import Logo from './components/Logo';
-import './App.css';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Resources from './components/Resources';
 import DateIdeas from './components/date_ideas/DateIdeas';
-import TokenService from './services/TokenService';
-import axios from 'axios';
+import BetterDoctor from './components/BetterDoctor';
+
+import AuthService from './services/AuthService';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-class App extends Component {
 
+class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      user: null,
+      user: '',
       fights: [],
       dateideas: [],
-      email: '',
-      password: '',
-      isLoggedIn: null
+      isLoggedIn: false
     }
+    // this.createDateIdea = this.createDateIdea.bind(this);
+    // this.createFight = this.createFight.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
     this.isLoggedIn = this.isLoggedIn.bind(this);
-    this.register = this.register.bind(this);
-    this.getDateIdeas = this.getDateIdeas.bind(this);
-    this.getFights = this.getFights.bind(this);
-    this.logout = this.logout.bind(this);
-    this.createDateIdea = this.createDateIdea.bind(this);
   }
 
 
-    getDateIdeas() {
-    const jwt = localStorage.getItem("jwt")
-    console.log(jwt)
-    const init = {
-      headers: {"Authorization": `Bearer ${jwt}`}
-    }
-    fetch(`${BASE_URL}/api/dateideas`, init)
-    .then(res => res.json())
-    .then(data => this.setState({
-      dateideas: data
-    }))
-    .catch(err => err)
-    console.log(this.isLoggedIn())
-  }
+  //   getDateIdeas() {
+  //   const jwt = localStorage.getItem("jwt")
+  //   const init = {
+  //     headers: {"Authorization": `Bearer ${jwt}`}
+  //   }
+  //   fetch(`${BASE_URL}/api/dateideas`, init)
+  //   .then(res => res.json())
+  //   .then(data => this.setState({
+  //     dateideas: data
+  //   }))
+  //   .catch(err => err)
+  //   console.log(this.isLoggedIn())
+  // }
 
-  getFights () {
-  fetch(`${BASE_URL}/api/fights`)
-    .then(response => response.json())
-    .then(data => this.setState({
-      fights: data
-    }))
-    .catch(err => err);
-    return this.state.fights
-  }
+  // getFights () {
+  // fetch(`${BASE_URL}/api/fights`)
+  //   .then(response => response.json())
+  //   .then(data => this.setState({
+  //     fights: data
+  //   }))
+  //   .catch(err => err);
+  //   return this.state.fights
+  // }
 
-  login(input) {
-    const url = `${BASE_URL}/api/user_token`;
-    const body = {"auth": {"email": input.email, "password": input.password}}
-    const init = { method: 'POST',
-                   headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-                   mode: 'cors',
-                   body:JSON.stringify(body),
-                   }
-    fetch(url, init)
-    .then(res => res.json())
-    .then(res => localStorage.setItem("jwt", res.jwt))
-    .then(() => this.setState({
-      isLoggedIn: true,
-    }))
-    .catch(err => console.log(err))
-}
 
  isLoggedIn() {
     const res = !!(localStorage.getItem("jwt"));
@@ -87,78 +68,56 @@ class App extends Component {
     return res;
   }
 
-
-  handleLogin(input) {
-    console.log(this.login(input))
+handleLogin(input) {
+    AuthService.login(input)
   }
 
-  register(data) {
- axios('http://localhost:3001/api/user_token', {
-  method: "POST",
-  data
-}).then(response => {
-  TokenService.save(response.data.token);
-}).then(console.log(data))
-.catch(err => console.log(`err: ${err}`));
+handleRegister(input) {
+  AuthService.register(input)
 }
 
 handleLogout() {
-  this.logout();
+  AuthService.destroyToken();
   this.setState({
-    user: null
+    user: false
   })
   this.props.history.push('/')
 }
 
-logout() {
-  localStorage.removeItem('jwt')
-  this.setState({
-    isLoggedIn: false,
-    dateideas: []
+isUser() {
+  fetch(`${BASE_URL}/api/user_token`, {
+    headers: {
+      Authorization: `Bearer ${AuthService.fetchToken()}`
+    }
+  }).then(resp => resp.json())
+  .then(user => {
+    this.setState({user})
   })
+  .catch(err => this.setState({user:false}))
 }
 
-createDateIdea() {
-     axios.post( 'http://localhost:3001/dateideas',
-      {
-        dateidea: {
-          body: this.state.body
-          }
-        }
-      )
-    .then(response => {
-      console.log(response)
-      const dateidea = [this.state.body, response.data]
-      this.setState({dateidea})
-    })
-    .catch(error => {
-      console.log(error)
-    })
-}
-
-  componentDidMount() {
-  this.createDateIdea()
-  this.getDateIdeas()
-  this.getFights()
-  this.isLoggedIn()
+componentDidMount() {
+ if(AuthService.fetchToken() !== "undefined") {
+  this.isUser();
+ }
       }
 
   render() {
     return (
 <main>
   <div>
+      <Route exact path="/" render={() => (
+      <Home/>
+      )}/>
     <Route path="/:id" render={() => (
               <Nav
-                user={this.state.user}
-                logout={this.handleLogout}
-                updateCurrentUser={this.updateCurrentUser}
-              />
-              )}
-            />
+              user={this.state.user}
+              logout={this.handleLogout}
+              />)}
+    />
     <Route path="/:id" render={() => (
              <Logo/>
           )}/>
-    <Route exact path="/" render={() => (<Home/>)}/>
     <Route
       exact
         path="/dateideas"
@@ -168,14 +127,12 @@ createDateIdea() {
         />
           <Route path="/login" render={({ history }) => (
               <Login
-                user={this.state.user}
-                history={history}
                 onSubmit={this.handleLogin}
               />)}
             />
              <Route path="/register" render={({ history }) => (
               <Register
-                onSubmit={this.register}
+                onSubmit={this.handleRegister}
               />)}
             />
             <Route exact path="/counseling" render={() => (<BetterDoctor/>)}/>

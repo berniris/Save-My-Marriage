@@ -24,6 +24,10 @@ default: &default
 development:
   <<: *default
   database: marriage_app_development
+  username: 'Berniris'
+  password: 'Alana011!'
+  host: localhost
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

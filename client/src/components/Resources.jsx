@@ -8,10 +8,11 @@ function Resources (props) {
 
 return (
 <div className="container">
-<ul>
-<li><Link to="/dateideas">Date Ideas</Link></li>
+<h1><Link to="/dateideas">Date Ideas</Link></h1>
 <p>Introduce some spontaneity back into your relationship with these unique date ideas</p>
-</ul>
+<h1><Link to="/tracker">Disagreement Tracker</Link></h1>
+<p>Writing about your feelings helps process your emotions and prepares you for better communication with your partner. Track recent disagreements to get started. </p>
+
 </div>
   )
 }

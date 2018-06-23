@@ -1,18 +1,8 @@
-import React, { Component }  from 'react';
-import Parallax from 'react-springy-parallax';
+import React from 'react';
 import '../App.css';
-// import Animate from 'react-simple-animate';
-import First from './First';
-import Second from './Second';
-// import Third from './Third';
 import Nav from './Nav';
 
-class Home extends Component {
-  constructor(props){
-  super(props)
-
-}
-  render() {
+function Home(props) {
 
   return (
 
@@ -23,43 +13,24 @@ class Home extends Component {
     </div>
       <div className="right-pane">
     </div>
-
-  <Parallax ref="parallax" pages={3}>
-
-                <Parallax.Layer offset={0} speed={1}/>
-                <Parallax.Layer offset={1} speed={1}/>
-                <Parallax.Layer offset={2} speed={1}/>
-
-                <Parallax.Layer
-                    offset={0}
-                    speed={0.5}
-                    onClick={() => this.refs.parallax.scrollTo(1)}>
-
-                <First/>
-
-                </Parallax.Layer>
-
-                <Parallax.Layer
-                    offset={1}
-                    speed={-0.1}
-                    onClick={() => this.refs.parallax.scrollTo(2)}>
-                    <div>
-                <Second/>
-                    </div>
-                </Parallax.Layer>
-
-                <Parallax.Layer
-                    offset={2}
-                    speed={0.5}
-                    onClick={() => this.refs.parallax.scrollTo(0)}>
-
-                </Parallax.Layer>
-
-            </Parallax>
+    <div class="container">
+    <div class="info-box">
+    <h1>Serious about saving or improving your relationship today?</h1>
+<button>Click to get Started</button>
+    </div>
+    <div class="info-box-small-1">
+    <h1>Joint couple services coming soon!</h1>
+    </div>
+    </div>
+    <div class="column-box">
+    <div class="info-box">
+    <h1>Always private - always secure.</h1>
+    </div>
+    </div>
 </div>
 
     );
   }
-}
+
 
 export default Home;

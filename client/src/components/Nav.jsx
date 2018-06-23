@@ -15,15 +15,13 @@ handleLogout() {
 }
   render() {
 console.log(this.props.user)
-
     return (
-
 
  <div className="menu">
     <ul>
        <li><Link to="/">Home</Link></li>
        {this.props.user ? (
-        <li className="logout" onClick={this.props.logout}>LOGOUT</li>
+        <li className="logout" onClick={this.handleLogout}>LOGOUT</li>
         ) : (
         <span>
        <li><Link to="/login">Login</Link></li>

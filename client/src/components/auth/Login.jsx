@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ handleSubmit (e) {
   this.props.onSubmit(this.state);
   this.setState({
     email: '',
-    password: ''
+    password: '',
   })
 }
 
@@ -29,12 +30,12 @@ handleChange(e) {
 
 
 render() {
-  console.log(this.props.handleLogin)
   return (
     <div className="container">
         <h1 className="header">
           Login
         </h1>
+        {this.state.loggedIn && <Redirect to='/'/>}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email: </label>
           <br />

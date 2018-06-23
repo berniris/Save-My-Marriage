@@ -26,15 +26,6 @@
   padding: 100px;
 }
 
-.second-banner-img {
-  width: 60%;
-  height: 70vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 button, .home-button {
   font-size: 50px;
@@ -61,10 +52,6 @@ button {
 
 }
 
-* {
-  outline: none;
-}
-
 /* Layout */
 
 .container {
@@ -72,23 +59,61 @@ button {
   display: flex;
   padding: 0;
   margin-top: 50px;
-  height: 300px;
+  height: 420px;
+  width: 70%;
   justify-content: center;
-  text-transform: uppercase;
+  align-items: flex-start;
+  flex-direction: row;
   background-color: #000000;
   color: #ffffff;
+  margin-left: 15%;
+}
+
+.column-box {
+justify-content: center;
+flex-direction: column;
+align-items:flex-start;
+
+}
+
+.info-box {
+  width: 450px;
+  height: 300px;
+  background-color: grey;
+  color: #ffffff;
+  margin-top: 100px;
+}
+
+.info-box h1 {
+  margin: 20px;
+  letter-spacing: 2px;
+}
+
+.info-box-small-1 {
+  width: 250px;
+  height: 250px;
+  background-color: #ffffff;
+  color: #000000;
+  margin-top: 100px;
+}
+
+.info-box-small-1 h1 {
+  margin: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .header {
-  padding: 20px;
+  padding: 30px;
 }
 
 .right-pane {
 right: 0;
+color: #000000;
 }
 
 .right-pane, .left-pane {
-background-color: #ffffff;
+background-color: #000000;
 max-width: 100px;
 height: 100%;
 width: 150px;
