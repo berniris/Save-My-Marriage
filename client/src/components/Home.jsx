@@ -9,22 +9,8 @@ function Home(props) {
   <div>
   <Nav/>
   <img src="https://i.imgur.com/D5YIHjg.png" alt="logo" className="logo"></img>
-  <div className="left-pane">
-    </div>
-      <div className="right-pane">
-    </div>
-    <div class="container">
-    <div class="info-box">
-    <h1>Serious about saving or improving your relationship today?</h1>
-<button>Click to get Started</button>
-    </div>
-    <div class="info-box-small-1">
-    <h1>Joint couple services coming soon!</h1>
-    </div>
-    </div>
-    <div class="column-box">
-    <div class="info-box">
-    <h1>Always private - always secure.</h1>
+    <div className="container">
+    <div style={{backgroundImage: `url(https://images.unsplash.com/photo-1525662665495-915530b703a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4d44e2f01c46a533a85935f77e8b120d&auto=format&fit=crop&w=1050&q=80)`}} className="splash-intro splash-flex" >
     </div>
     </div>
 </div>

@@ -21,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: '',
+      user: false,
       fights: [],
       dateideas: [],
       isLoggedIn: false
@@ -35,19 +35,19 @@ class App extends Component {
   }
 
 
-  //   getDateIdeas() {
-  //   const jwt = localStorage.getItem("jwt")
-  //   const init = {
-  //     headers: {"Authorization": `Bearer ${jwt}`}
-  //   }
-  //   fetch(`${BASE_URL}/api/dateideas`, init)
-  //   .then(res => res.json())
-  //   .then(data => this.setState({
-  //     dateideas: data
-  //   }))
-  //   .catch(err => err)
-  //   console.log(this.isLoggedIn())
-  // }
+    getDateIdeas() {
+    const jwt = localStorage.getItem("jwt")
+    const init = {
+      headers: {"Authorization": `Bearer ${jwt}`}
+    }
+    fetch(`${BASE_URL}/api/dateideas`, init)
+    .then(res => res.json())
+    .then(data => this.setState({
+      dateideas: data
+    }))
+    .catch(err => err)
+    console.log(this.isLoggedIn())
+  }
 
   // getFights () {
   // fetch(`${BASE_URL}/api/fights`)
@@ -85,7 +85,7 @@ handleLogout() {
 }
 
 isUser() {
-  fetch(`${BASE_URL}/api/user_token`, {
+  fetch(`${BASE_URL}/api/users`, {
     headers: {
       Authorization: `Bearer ${AuthService.fetchToken()}`
     }
@@ -120,7 +120,7 @@ componentDidMount() {
           )}/>
     <Route
       exact
-        path="/dateideas"
+        path="api/dateideas"
         render={({ match }) => (
           <DateIdeas dateideas={this.state.dateideas} isLoggedIn={this.isLoggedIn} createDateIdea={this.createDateIdea}/>
           )}

@@ -1,11 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Give+You+Glory|Kristi|Oswald|Lobster+Two|Niconne|Pinyon+Script');
-
-/* "Home" */
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
 /** {
   border: 1px solid;
 }
 */
+
+/* "Home" */
+
+.splash-intro {
+  width: 100%;
+  height: 360px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin-top: -10px;
+  opacity: .5;
+}
+
+
 
 .logo {
   display: block;
@@ -27,7 +39,7 @@
 }
 
 
-button, .home-button {
+button {
   font-size: 50px;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
@@ -37,103 +49,49 @@ button, .home-button {
   letter-spacing: 8px;
   opacity: 1;
   border: 1px solid #ffffff;
-  display: block;
-  flex: 1;
-}
-
-button {
-  width: 400px;
-  height: 100px;
-}
-
-.idea-form {
-  margin-top: 100px;
-  flex: 1;
-
 }
 
 /* Layout */
 
 .container {
   font-family: 'Oswald', sans-serif;
-  display: flex;
-  padding: 0;
+/*  display: flex;*/
   margin-top: 50px;
   height: 420px;
-  width: 70%;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
+  width: 100%;
+/*  justify-content: center;
+  align-items: flex-start;*/
   background-color: #000000;
   color: #ffffff;
-  margin-left: 15%;
-}
-
-.column-box {
-justify-content: center;
-flex-direction: column;
-align-items:flex-start;
-
-}
-
-.info-box {
-  width: 450px;
-  height: 300px;
-  background-color: grey;
-  color: #ffffff;
-  margin-top: 100px;
-}
-
-.info-box h1 {
-  margin: 20px;
-  letter-spacing: 2px;
-}
-
-.info-box-small-1 {
-  width: 250px;
-  height: 250px;
-  background-color: #ffffff;
-  color: #000000;
-  margin-top: 100px;
-}
-
-.info-box-small-1 h1 {
-  margin: 30px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.header {
-  padding: 30px;
-}
-
-.right-pane {
-right: 0;
-color: #000000;
-}
-
-.right-pane, .left-pane {
-background-color: #000000;
-max-width: 100px;
-height: 100%;
-width: 150px;
-position: fixed;
-z-index: 100;
-top: 0;
-bottom: 0;
+/*  margin-left: 15%;*/
 }
 
 /* Navigation */
 
-.menu {
+.pitch {
+text-align: center;
+font-family: 'Oswald', sans-serif;
+font-size: 15px;
+letter-spacing: 2px;
+}
+
+.promotion {
+  margin-top: 2%;
+  position: relative;
+}
+
+.menu, .pitch{
 background: #000000;
 position: relative;
 z-index: 100;
 height: 70px;
 top: 55%;
+width: 100%;
 color: #ffffff;
 font-family: 'Oswald', sans-serif;
+letter-spacing: 0px;
 text-transform: uppercase;
+border-top: 1px solid #ffffff;
 }
 
 .menu ul {
@@ -154,14 +112,11 @@ text-transform: uppercase;
   padding: 20px;
 }
 
-.container li > a:nth-child {
-  color: #000000;
-}
-
 /* Links */
 
 a:link {
   color: #ffffff;
+  text-decoration: none;
 }
 
 a:visited {
@@ -169,12 +124,16 @@ a:visited {
 }
 
 a:hover {
-  color: #1073AF;
+  color: grey;
 }
 
 a:active {
   color: #ffffff;
-  text-decoration: none;
+}
+
+/*Resources component*/
+.resources {
+  margin-left: 200px;
 }
 
 /*Date Component*/
@@ -198,6 +157,12 @@ a:active {
 .idea {
   font-family: 'Oswald', sans-serif;
   margin: 5px;
+}
+
+.idea-form {
+  margin-top: 100px;
+  flex: 1;
+
 }
 
 input {

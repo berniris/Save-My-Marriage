@@ -14,9 +14,9 @@ handleLogout() {
   this.props.logout();
 }
   render() {
-console.log(this.props.user)
     return (
-
+<div>
+<div className="pitch"><p className="promotion">Free shipping, returns and a gift on all orders!</p></div>
  <div className="menu">
     <ul>
        <li><Link to="/">Home</Link></li>
@@ -31,6 +31,7 @@ console.log(this.props.user)
        <li><Link to="/counseling">Find A Counselor</Link></li>
        <li><Link to="/tips">Free Resources</Link></li>
     </ul>
+ </div>
  </div>
 
 
