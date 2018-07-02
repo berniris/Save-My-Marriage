@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -35,7 +35,6 @@ render() {
         <h1 className="header">
           Login
         </h1>
-        {this.state.loggedIn && <Redirect to='/'/>}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email: </label>
           <br />
@@ -63,6 +62,7 @@ render() {
             Submit
           </button>
           </form>
+                 <li><Link to="/register">Register</Link></li>
       </div>
 
   );

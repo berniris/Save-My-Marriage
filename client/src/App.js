@@ -21,10 +21,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: false,
+      user: null,
       fights: [],
       dateideas: [],
-      isLoggedIn: false
+      loggedInError: false
     }
     // this.createDateIdea = this.createDateIdea.bind(this);
     // this.createFight = this.createFight.bind(this);
@@ -46,7 +46,6 @@ class App extends Component {
       dateideas: data
     }))
     .catch(err => err)
-    console.log(this.isLoggedIn())
   }
 
   // getFights () {
@@ -59,18 +58,15 @@ class App extends Component {
   //   return this.state.fights
   // }
 
-
- isLoggedIn() {
-    const res = !!(localStorage.getItem("jwt"));
-    this.setState({
-      isLoggedIn: res,
-    })
-    return res;
-  }
-
 handleLogin(input) {
     AuthService.login(input)
-  }
+    .then(user => {
+    this.setState({user})
+  })
+  .catch(err => this.setState({loggedInError: true}))
+  this.props.history.push('/');
+}
+  
 
 handleRegister(input) {
   AuthService.register(input)
@@ -84,40 +80,46 @@ handleLogout() {
   this.props.history.push('/')
 }
 
-isUser() {
-  fetch(`${BASE_URL}/api/users`, {
-    headers: {
-      Authorization: `Bearer ${AuthService.fetchToken()}`
-    }
-  }).then(resp => resp.json())
-  .then(user => {
+
+
+isLoggedIn() {
+  AuthService.checkToken().then(user => {
     this.setState({user})
   })
-  .catch(err => this.setState({user:false}))
+  .catch(err => this.setState({loggedInError: true}))
 }
 
 componentDidMount() {
- if(AuthService.fetchToken() !== "undefined") {
-  this.isUser();
- }
+ this.isLoggedIn();
       }
 
   render() {
+    console.log(this.state.user)
+
     return (
 <main>
   <div>
-      <Route exact path="/" render={() => (
+    <Route exact path="/" render={props => 
+      <div>
+         <Nav
+          user={this.state.user}
+          loggedIn={this.isLoggedIn}
+          logout={this.handleLogout}
+              />
+      <Logo/>
       <Home/>
-      )}/>
-    <Route path="/:id" render={() => (
+      </div>
+    } />
+    <Route path="/:id" render={props => 
+              <div>
               <Nav
               user={this.state.user}
+              loggedIn={this.isLoggedIn}
               logout={this.handleLogout}
-              />)}
-    />
-    <Route path="/:id" render={() => (
-             <Logo/>
-          )}/>
+              />
+              <Logo/>
+              </div>
+            }/>
     <Route
       exact
         path="api/dateideas"

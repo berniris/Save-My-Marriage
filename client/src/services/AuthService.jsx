@@ -1,15 +1,25 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
+// used inside login - throws an error or returns response in jason
 function handleError(res) {
     if(!res.ok) throw new Error(res.statusMessage);
     console.log(res);
     return res.json();
   }
 
-function fetchToken() {
-	return window.localStorage.getItem('jwt') || '';
+function checkToken() {
+  return new Promise((resolve, reject) => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      const user = token;
+      resolve(user);
+    }
+    reject();
+  })
 }
+
+console.log(checkToken())
 
   function destroyToken() {
   window.localStorage.removeItem("jwt");
@@ -49,6 +59,6 @@ function register(input) {
 export default {
 	login,
 	register,
-	fetchToken,
+	checkToken,
 	destroyToken
 }
