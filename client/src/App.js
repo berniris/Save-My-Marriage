@@ -94,7 +94,6 @@ componentDidMount() {
       }
 
   render() {
-    console.log(this.state.user)
 
     return (
 <main>

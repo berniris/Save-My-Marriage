@@ -19,8 +19,6 @@ function checkToken() {
   })
 }
 
-console.log(checkToken())
-
   function destroyToken() {
   window.localStorage.removeItem("jwt");
   }

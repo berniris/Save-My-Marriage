@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import Nav from './Nav';
 
 function Home(props) {
 
@@ -12,6 +11,9 @@ function Home(props) {
     </div>
     <div className="infobox-1 splash-flex" ></div>
     </div>
+    <img className="couple" src="https://img00.deviantart.net/d4cb/i/2016/202/9/4/couple_png_by_valeemcyrus-daavl4b.png"></img>
+   <div className="testimonial"><h1>"We were undoubtedly on the path to divorce. Constant fighting and nothing seemed to be getting better. I decided to give Save 
+   		My Marriage a try and we began to repair our relationship. We owe everything to this app"</h1></div>
 </div>
 
     );
