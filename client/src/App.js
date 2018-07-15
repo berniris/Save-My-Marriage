@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
@@ -35,6 +34,7 @@ class App extends Component {
   }
 
 
+
     getDateIdeas() {
     const jwt = localStorage.getItem("jwt")
     const init = {
@@ -46,25 +46,33 @@ class App extends Component {
       dateideas: data
     }))
     .catch(err => err)
+    .then(console.log(this.state.dateideas))
   }
 
-  // getFights () {
-  // fetch(`${BASE_URL}/api/fights`)
-  //   .then(response => response.json())
-  //   .then(data => this.setState({
-  //     fights: data
-  //   }))
-  //   .catch(err => err);
-  //   return this.state.fights
-  // }
+  getFights () {
+  const jwt = localStorage.getItem("jwt")
+  const init = {
+    headers: {"Authorization": `Bearer ${jwt}`}
+    }
+  fetch(`${BASE_URL}/api/fights`, init)
+    .then(res => res.json())
+    .then(data => this.setState({
+      fights: data
+    }))
+    .catch(err => err);
+    return this.state.fights
+  }
+
+getCalls() {
+  this.intervalId = setInterval(() => this.getDateIdeas(), 1000);
+  this.getDateIdeas();
+  this.getFights()
+}
 
 handleLogin(input) {
-    AuthService.login(input)
-    .then(user => {
-    this.setState({user})
-  })
-  .catch(err => this.setState({loggedInError: true}))
+  AuthService.login(input)
   this.props.history.push('/');
+  this.getCalls();
 }
   
 
@@ -90,11 +98,17 @@ isLoggedIn() {
 }
 
 componentDidMount() {
+ this.getCalls();
  this.isLoggedIn();
       }
 
-  render() {
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
+      }
 
+
+  render() {
+console.log(this.state.dateideas)
     return (
 <main>
   <div>
@@ -119,10 +133,9 @@ componentDidMount() {
               <Logo/>
               </div>
             }/>
-    <Route
-      exact
-        path="api/dateideas"
-        render={({ match }) => (
+    <Route 
+        path="/api/dateideas"
+        render={() => (
           <DateIdeas dateideas={this.state.dateideas} isLoggedIn={this.isLoggedIn} createDateIdea={this.createDateIdea}/>
           )}
         />

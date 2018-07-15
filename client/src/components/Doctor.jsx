@@ -8,7 +8,7 @@ function Doctor(props) {
 
   <div>
   <p>{props.firstName} {props.lastName} {props.title}</p>
-  <img src={props.img}></img>
+  <img src={props.img} alt="doctor"></img>
 </div>
 
     );

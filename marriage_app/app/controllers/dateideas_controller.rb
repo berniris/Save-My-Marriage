@@ -4,7 +4,7 @@ class DateideasController < ApplicationController
 
   # GET /dateideas
   def index
-    @dateideas = Dateidea.all
+    @dateideas = Dateidea.all.sample
 
     render json: @dateideas
   end

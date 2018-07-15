@@ -32,9 +32,12 @@ onChange(e) {
 render() {
   return (
     <div className="container">
+    <div className="register">
         <h1 className="header">
           Register
         </h1>
+        <p>Already have an account? Please click <a href="/register">here to login.</a></p>
+        <br/>    
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email: </label>
           <br />
@@ -53,6 +56,8 @@ render() {
             type="password"
             onChange={this.onChange}
           />
+          <br/>
+          <br/>
           <button
             type="submit"
             value="Submit"
@@ -60,6 +65,7 @@ render() {
             Submit
           </button>
           </form>
+      </div>
       </div>
 
   );

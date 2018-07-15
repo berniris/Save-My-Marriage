@@ -41,22 +41,22 @@ function login(input) {
 }
 
 function register(input) {
-	const body = {"user": {"email": input.email, "password": input.password, "password_confirmation": input.password}}
-	const options = {
-		method: 'POST',
-		headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-		mode: 'cors',
-		body: JSON.stringify(body),
-	}
-	console.log(options)
-	fetch(`${BASE_URL}/api/users`, options)
-	.then(res => res.json())
-	.catch(err => console.log(err))
+  const body = {"user": {"email": input.email, "password": input.password, "password_confirmation": input.password}}
+  const options = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    mode: 'cors',
+    body: JSON.stringify(body),
+  }
+  console.log(options)
+  fetch(`${BASE_URL}/api/users`, options)
+  .then(res => res.json())
+  .catch(err => console.log(err))
 }
 
 export default {
-	login,
-	register,
-	checkToken,
-	destroyToken
+  login,
+  register,
+  checkToken,
+  destroyToken
 }
