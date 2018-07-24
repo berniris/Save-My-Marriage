@@ -6,24 +6,26 @@ class DateIdeaForm extends Component {
     super(props)
     this.state = {
       body: ''
-    };
+    }
+
      this.handleSubmit = this.handleSubmit.bind(this);
-     this.onChange = this.onChange.bind(this);
+     this.handleChange = this.handleChange.bind(this);
   }
 
-onChange(e) {
-  this.setState({
-    [e.target.name]: e.target.value
-  })
-}
 
 handleSubmit(e) {
   e.preventDefault();
   this.props.onSubmit(this.state.body)
-
     }
 
+handleChange(e) {
+  this.setState({
+  [e.target.name]: e.target.value
+  })
+}
+
 render () {
+  console.log(this.state.body)
  return (
 
         <form onSubmit={this.handleSubmit}>
@@ -33,7 +35,7 @@ render () {
                     value={this.state.body}
                     type="text"
                     name="body"
-                    onChange={this.onChange} />
+                    onChange={this.handleChange} />
           </div>
             <button type="submit" value="Submit">Submit Idea</button>
         </form>

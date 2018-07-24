@@ -7,8 +7,9 @@ class BetterDoctor extends Component {
 constructor (props) {
   super(props);
   this.state = {
-    doctors: []
-  };
+    doctors: [],
+    zipcode: 0
+  }
 
 }
 
@@ -49,7 +50,7 @@ console.log(this.state.doctors)
     </div>
     <div className="flex">
     <div className="infobox-1">Would you like to speak to someone in person? Please enter your zipcode to see available counselors in your area.</div>
-    <div className="infobox-2">{doctors}</div>
+    <div className="counselor">{doctors}</div>
     </div>
     </div>
 

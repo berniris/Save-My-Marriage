@@ -15,7 +15,7 @@ function Home(props) {
     <h1>"A relationship is like a house. When a lightbulb burns out you do not go and buy a new house, you fix the lightbulb."
     </h1>
     </div>
-    <div className="infobox-2"></div>
+    <div className="infobox-2 info-img" style={{backgroundImage: `url(https://images.unsplash.com/photo-1501458005847-438756ac79dd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c4d9e8fe35750d8816a6fd8779290d6b&auto=format&fit=crop&w=632&q=80)`}}></div>
     </div>
     </div>
     <img className="couple" src="https://img00.deviantart.net/d4cb/i/2016/202/9/4/couple_png_by_valeemcyrus-daavl4b.png" alt="couple"></img>
@@ -30,7 +30,8 @@ function Home(props) {
     <h1>It's never too late to get your marriage back on track. Speak with a dedicated counselor and browse free resources to get started today.
     </h1>
     </div>
-    <div className="infobox-2"></div>
+    <div className="infobox-2">
+    <h1>Nothing says "I'm sorry" like a gift. Put your most recent argument behind you with a present. Click here to browse our online store. </h1></div>
     </div>
     </div>
 </div>

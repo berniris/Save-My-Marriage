@@ -15,7 +15,9 @@ return (
         </div>
 
         </div>
-            <DateIdeaForm/>
+            <DateIdeaForm
+            onSubmit={props.createDateIdea}
+            />
         </div>
 
                 )
