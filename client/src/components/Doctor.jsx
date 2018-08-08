@@ -6,7 +6,7 @@ function Doctor(props) {
 
   return (
 
-  <div>
+  <div className="doctor">
   <table>
   <p>{props.firstName} {props.lastName} {props.title}</p>
   <img src={props.img} alt="doctor"></img>

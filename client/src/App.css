@@ -13,7 +13,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  margin-top: -10px;
   opacity: .5;
 }
 
@@ -45,16 +44,21 @@
 
 .couple {
   margin-top: 50px;
-  width: 50%;
+  width: 60%;
   height: 50%;
+}
+
+.middle-container {
+display: flex;
+justify-content: center;
 }
 
 .testimonial {
   float: right;
   width: 550px;
-  height: 200px;
+  max-height: 100px;
   margin-right:50px;
-  margin-top: 80px;
+  margin-top: 50px;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
 }
@@ -66,6 +70,9 @@ h1 {
 
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: 'Poppins', sans-serif;
   margin-top: 50px;
   height: 440px;
@@ -86,23 +93,36 @@ h1 {
   color: #000000;
   z-index: 0;
   opacity: .8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+
+.flex p {
+  font-size: 20px;
+} 
 
 .counselor {
   overflow: scroll;
 }
 
-.infobox-1, .infobox-2 p {
-  font-size: 15px;
+.doctor {
+    padding: 30px;
+    flex-basis: 50%;
+    box-sizing: border-box;
+    height: 300px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
 button {
-  font-size: 50px;
+  font-size: 35px;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   background-color: #ffffff;
   width: 400px;
-  height: 100px;
+  height: 90px;
   letter-spacing: 8px;
   border: 1px solid #ffffff;
   z-index: 1; 
@@ -199,6 +219,7 @@ a:active {
   color: grey;
 }
 
+
 /* Login */
 
 .login, .register {
@@ -235,7 +256,6 @@ a:active {
   font-size: 30px;
   text-transform: uppercase;
   margin-left: auto;
-  margin-right: auto;
 }
 
 .date-ideas {
@@ -244,15 +264,15 @@ a:active {
 
 .idea {
   font-family: 'Poppins', sans-serif;
-  margin: 5px;
-  width: 250px;
-  margin: 0 auto;
   font-size: 20px;
 }
 
 .idea-form {
   margin-top: 100px;
   flex: 1;
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 30px;
 
 }
 
@@ -263,7 +283,7 @@ input {
   outline: none;
   width: 150px;
   padding: 15px;
-  margin: 5px;
+  margin-bottom: 20px;
 }
 
 

@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 
-
 class DateIdeaForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      body: ''
+      body: '',
+      dateID: null,
+      created: false
     }
 
-     this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleCreateDateFormSubmit = this.handleCreateDateFormSubmit.bind(this);
      this.handleChange = this.handleChange.bind(this);
   }
 
 
-handleSubmit(e) {
+handleCreateDateFormSubmit(e) {
   e.preventDefault();
-  this.props.onSubmit(this.state.body)
-    }
+    this.props.onSubmit(this.state);
+    this.setState({
+      created: true
+    })
+    // this.props.history.push('/dateideas');
+ }
 
 handleChange(e) {
   this.setState({
@@ -25,10 +30,13 @@ handleChange(e) {
 }
 
 render () {
-  console.log(this.state.body)
+ 
  return (
-
-        <form onSubmit={this.handleSubmit}>
+  <div>
+  {this.state.created ? 
+  <h3>Review your date idea: {this.state.body} </h3>
+  :
+        <form onSubmit={this.handleCreateDateFormSubmit}>
         <div className="idea-form">
           <label htmlFor="dateidea">Propose a date idea for others:</label>
             <input
@@ -37,8 +45,10 @@ render () {
                     name="body"
                     onChange={this.handleChange} />
           </div>
-            <button type="submit" value="Submit">Submit Idea</button>
+            <button type="submit" value="submit">Submit Idea</button>
         </form>
+      }
+        </div>
     )
 }
 }

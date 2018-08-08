@@ -49,7 +49,7 @@ console.log(this.state.doctors)
     <div style={{backgroundImage: `url(https://images.unsplash.com/photo-1455824048252-3571df13b276?ixlib=rb-0.3.5&s=931758a7caa9e4aefb7990f31e776b85&auto=format&fit=crop&w=1192&q=80)`}} className="splash-header" >
     </div>
     <div className="flex">
-    <div className="infobox-1">Would you like to speak to someone in person? Please enter your zipcode to see available counselors in your area.</div>
+    <div className="infobox-1"><p>Would you like to speak to someone in person? Please enter your zipcode to see available counselors in your area</p></div>
     <div className="counselor">{doctors}</div>
     </div>
     </div>

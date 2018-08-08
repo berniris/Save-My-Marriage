@@ -9,9 +9,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Resources from './components/Resources';
 import DateIdeas from './components/date_ideas/DateIdeas';
-import DateIdeaForm from './components/date_ideas/DateIdeaForm';
 import BetterDoctor from './components/BetterDoctor';
-
 import authService from './services/authService';
 import dateService from './services/dateService';
 
@@ -34,32 +32,22 @@ class App extends Component {
   }
 
 
-
 getDateIdeas() {
-  const jwt = localStorage.getItem("jwt")
-  const init = {
-  headers: {"Authorization": `Bearer ${jwt}`}
-    }
-  fetch(`${BASE_URL}/api/dateideas`, init)
-  .then(res => res.json())
+dateService.All()
   .then(data => this.setState({
    dateideas: data
     }))
   .catch(err => err)
-  .then(console.log(this.state.dateideas))
-  }
+}
 
 createDateIdea(dateidea) {
 dateService.Create(dateidea) 
-.then(data => {
+.then(respBody => {
+  this.getDateIdeas();
+  // this.getUserDateIdea();
   this.props.history.push('/dateideas');
-  this.setState((prevState) => {
-    this.getDateIdeas();
-    return {
-      dateideas: [...prevState.dateideas, data]
-    }
-  })
 })
+.then(console.log(dateidea))
 }
 
 getCalls() {
@@ -130,19 +118,19 @@ render() {
               </div>
             }/>
     <Route 
-        path="/api/dateideas"
+        path="/dateideas"
         render={() => (
-          <DateIdeas dateideas={this.state.dateideas} isLoggedIn={this.isLoggedIn} createDateIdea={this.createDateIdea}/>
+          <DateIdeas dateideas={this.state.dateideas} onSubmit={this.createDateIdea}/>
           )}
         />
           <Route path="/login" render={({ history }) => (
               <Login
-                onSubmit={this.handleLogin}
+                handleLogin={this.handleLogin}
               />)}
             />
              <Route path="/register" render={({ history }) => (
               <Register
-                onSubmit={this.handleRegister}
+                handleRegister={this.handleRegister}
               />)}
             />
             <Route exact path="/counseling" render={() => (<BetterDoctor/>)}/>

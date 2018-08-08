@@ -12,12 +12,12 @@ return (
     </div>
     <div className="flex">
      <div className="infobox-1">
-<p>Introduce some spontaneity back into your relationship with these unique date ideas. Click below to get started. </p>
-<button><Link to="/api/dateideas">Date Ideas</Link></button>
+<p>Introduce some spontaneity back into your relationship with these unique date ideas. Click below to find some inspiraion. </p>
+<button><Link to="/dateideas">Date Ideas</Link></button>
 </div>
  <div className="infobox-2">
-<p>Writing about your feelings helps process your emotions and prepares you for better communication with your partner. 
-Track recent disagreements by clicking below to get started. </p>
+<p>Writing about your feelings helps process your emotions and prepares you for meaningful communication. 
+Track recent disagreements with our tracker.</p>
 <button><Link to="/tracker">Disagreement Tracker</Link></button>
 </div>
 </div>
