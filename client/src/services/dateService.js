@@ -16,14 +16,12 @@ function All() {
 }
   return fetch(`${BASE_URL}/api/dateideas`, options)
   .then(checkStatus)
-  .catch(err => console.log(err))
 }
 
 // Clients create a date suggestion for other users 
 function Create(inputs) {
 	const jwt = localStorage.getItem("jwt")
 	const body = {"dateidea": {"body": inputs.body}}
-	console.log(JSON.stringify(body))
 	const options = {
 		method: 'POST',
 		body: JSON.stringify(body),
@@ -38,21 +36,22 @@ function Create(inputs) {
 }
 
 function Delete(id) {
-  const jwt = localStorage.getItem("jwt")
-  const options = {
-  method: 'DELETE',
-  headers: {
-  		"Authorization": `Bearer ${jwt}`
-    }
-}
-  return fetch(`${BASE_URL}/api/dateideas/${id}`, options)
-  .then(checkStatus)
-  .catch(err => console.log(err))
-}
+    const jwt = localStorage.getItem("jwt");
+    const options = {
+      method: 'DELETE',
+      headers: {
+      	'Content-Type': 'application/json',
+      	'Authorization': `Bearer ${jwt}`
+      }
+    };
+    fetch(`${BASE_URL}/api/dateideas/${id}`, options)
+    .then(checkStatus)
+    .catch(err =>console.log(err));
+  }
 
 export default {
 	All,
 	Create,
-	Update,
+	
 	Delete
 }

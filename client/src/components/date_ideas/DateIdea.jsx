@@ -17,7 +17,6 @@ return (
             <DateIdeaForm
             onSubmit={props.onSubmit}
             onDelete={props.onDelete}
-            dateID={props.dateID}
             />
         </div>
 

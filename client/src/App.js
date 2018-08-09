@@ -13,8 +13,6 @@ import BetterDoctor from './components/BetterDoctor';
 import authService from './services/authService';
 import dateService from './services/dateService';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
-
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +20,7 @@ class App extends Component {
     this.state = {
       user: null,
       dateideas: [],
+      dateID: null,
       loggedInError: false
     }
     this.createDateIdea = this.createDateIdea.bind(this);
@@ -34,20 +33,28 @@ class App extends Component {
 
 getDateIdeas() {
 dateService.All()
-  .then(data => this.setState({
-   dateideas: data
-    }))
+.then(respBody => 
+  this.setState({
+   dateideas: respBody
+}))
   .catch(err => err)
+  .then(console.log(this.state.dateideas))
 }
 
 createDateIdea(dateidea) {
 dateService.Create(dateidea) 
 .then(respBody => {
-  this.getDateIdeas();
+  this.setState({
+    dateID: respBody.id
+  })
   // this.getUserDateIdea();
-  this.props.history.push('/dateideas');
+  // this.props.history.push('/dateideas');
 })
-.then(console.log(dateidea))
+
+}
+
+deleteDateIdea(id) {
+  dateService.Delete(id) 
 }
 
 getCalls() {
@@ -83,7 +90,7 @@ isLoggedIn() {
 }
 
 componentDidMount() {
- this.getCalls();
+ // this.getCalls();
  this.isLoggedIn();
 }
 
@@ -94,6 +101,7 @@ componentWillUnmount() {
 
 render() {
   return (
+
 <main>
   <div>
     <Route exact path="/" render={props => 
@@ -120,7 +128,7 @@ render() {
     <Route 
         path="/dateideas"
         render={() => (
-          <DateIdeas dateideas={this.state.dateideas} onSubmit={this.createDateIdea}/>
+          <DateIdeas dateideas={this.state.dateideas} dateID={this.state.dateID} onSubmit={this.createDateIdea} onDelete={this.deleteDateIdea}/>
           )}
         />
           <Route path="/login" render={({ history }) => (
