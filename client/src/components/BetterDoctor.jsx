@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import Doctor from './Doctor';
+import Geocode from 'react-geocode';
 import '../App.css';
 
 
@@ -8,29 +9,58 @@ constructor (props) {
   super(props);
   this.state = {
     doctors: [],
-    zipcode: 0
+    lat: '',
+    lng: '',
+    baseurl: 'https://api.betterdoctor.com/2016-03-01/doctors?'
   }
 
 }
 
+
+setKey () {
+Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBE2Q9CboNNsg');
+}
+
+enableLogs() {
+Geocode.enableDebug();
+}
+
+getAddress() {
+Geocode.fromAddress("ny")
+.then(response => {
+    const { lat, lng } = response.results[0].geometry.location;
+    this.setState({
+    lat: lat,
+    lng: lng
+  })
+  },
+  error => {
+    console.error(error);
+  },
+)
+this.getDoctorData();
+}
+
 getDoctorData () {
-  fetch('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=psychologist&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=6d011bef8ed81cebe9760f2e5b00bed1')
+  fetch(`${this.state.baseurl}specialty_uid=psychologist&location=${this.state.lat},${this.state.lng},100&skip=2&limit=10&user_key=6d011bef8ed81cebe9760f2e5b00bed1`)
   .then(response => {
     return response.json();
   }).then(data => {
     this.setState({doctors: data.data});
-    console.log("state", this.state.doctors)
+    console.log("doctors", this.state.doctors)
   })
 }
 
 
+
 componentDidMount() {
+  this.getAddress()
   this.getDoctorData();
 }
 
 
 render() {
-console.log(this.state.doctors)
+  console.log(this.state.lat + "," + this.state.lng)
   const doctors = this.state.doctors.map(doctor => {
     return (
       <Doctor 
