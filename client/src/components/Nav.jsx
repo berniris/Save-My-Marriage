@@ -32,7 +32,7 @@ render() {
        </span>
        )}
        <li><Link to="/counseling">Find A Counselor</Link></li>
-       <li><Link to="/tips">Free Resources</Link></li>
+       <li><Link to="/tips">Resources</Link></li>
     </ul>
  </div>
  </div>

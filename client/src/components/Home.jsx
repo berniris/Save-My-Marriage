@@ -34,7 +34,7 @@ function Home(props) {
     </h1>
     </div>
     <div className="infobox-2">
-    <h1>Nothing says "I'm sorry" like flowers or a box of chocalates. <span><Link to="/">Browse our unique gifts here.</Link></span></h1></div>
+    <h1>Nothing says "I'm sorry" like flowers or a box of chocalates. Stay tuned for the debut of our online gift shop later this month!</h1></div>
     </div>
     </div>
 </div>

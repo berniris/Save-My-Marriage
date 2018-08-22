@@ -37,6 +37,7 @@ function login(input) {
     .then(res => {
      localStorage.setItem("jwt", res.jwt)
      })
+     .then(console.log("jwt"))
     .catch(err => console.log(err))
 }
 
@@ -50,6 +51,7 @@ function register(input) {
   }
   console.log(options)
   fetch(`${BASE_URL}/api/users`, options)
+  .then(handleError)
   .then(res => res.json())
   .catch(err => console.log(err))
 }

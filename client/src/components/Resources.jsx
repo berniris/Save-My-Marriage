@@ -16,9 +16,8 @@ return (
 <button><Link to="/dateideas">Date Ideas</Link></button>
 </div>
  <div className="infobox-2">
-<p>Writing about your feelings helps process your emotions and prepares you for meaningful communication. 
-Track recent disagreements with our tracker.</p>
-<button><Link to="/tracker">Disagreement Tracker</Link></button>
+<p>We are in the process of growing our content! Access to a monthly free gift from our gift shop and unlimited access to our mediation app will be available for a monthly fee off $19.99. Both features coming soon! </p>
+{/*<button><Link to="/tracker">Disagreement Tracker</Link></button>*/}
 </div>
 </div>
 </div>

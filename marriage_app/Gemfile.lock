@@ -141,7 +141,6 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.5)
       tzinfo (>= 1.0.0)
-    wdm (0.1.1)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -165,10 +164,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-  wdm (>= 0.1.0)
 
 RUBY VERSION
-   ruby 2.4.4p296
+   ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.2
+   1.16.4

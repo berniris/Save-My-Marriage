@@ -9,12 +9,12 @@ class Register extends Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
 handleSubmit (e) {
   e.preventDefault();
-  this.props.onSubmit(this.state);
+  this.props.handleRegister(this.state);
   this.setState({
     email: '',
     password: ''
@@ -22,7 +22,7 @@ handleSubmit (e) {
   // this.props.history.push('/')
 }
 
-onChange(e) {
+handleChange(e) {
   this.setState({
     [e.target.name]: e.target.value
   })
@@ -45,7 +45,7 @@ render() {
             value={this.state.email}
             name="email"
             type="email"
-            onChange={this.onChange}
+            onChange={this.handleChange}
           />
           <br /><br />
           <label htmlFor="password">Password:</label>
@@ -54,7 +54,7 @@ render() {
             value={this.state.password}
             name="password"
             type="password"
-            onChange={this.onChange}
+            onChange={this.handleChange}
           />
           <br/>
           <br/>
