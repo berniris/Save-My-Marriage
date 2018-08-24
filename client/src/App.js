@@ -66,7 +66,7 @@ class App extends Component {
         authService.login(input)
         console.log("hello")
         this.props.history.push('/');
-        this.getCalls();
+        // this.getCalls();
         // window.location.reload();
     }
 

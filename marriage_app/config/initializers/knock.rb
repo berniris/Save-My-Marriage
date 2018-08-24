@@ -49,11 +49,11 @@ Knock.setup do |config|
   ## Default:
   # config.token_public_key = nil
 
-  ## Exception Class
-  ## ---------------
-  ##
-  ## Configure the exception to be used when user cannot be found.
-  ##
-  ## Default:
-  # config.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
-end
+#   # Exception Class
+#   # ---------------
+#   #
+#   # Configure the exception to be used when user cannot be found.
+#   #
+#   # Default:
+#   config.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
+# end

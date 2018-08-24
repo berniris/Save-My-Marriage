@@ -42,7 +42,7 @@ function login(input) {
 }
 
 function register(input) {
-  const body = {"user": {"email": input.email, "password": input.password, "password_confirmation": input.password}}
+  const body = {"auth": {"email": input.email, "password": input.password}}
   const options = {
     method: 'POST',
     headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
@@ -52,7 +52,10 @@ function register(input) {
   console.log(options)
   fetch(`${BASE_URL}/api/users`, options)
   .then(handleError)
-  .then(res => res.json())
+  .then(res => {
+    localStorage.setItem("jwt", res.jwt)
+  })
+  .then(console.log("jwt"))
   .catch(err => console.log(err))
 }
 

@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   resources :users
   resources :dateideas
   resources :fights
-  # post 'dateideas' => 'dateideas#create'
+
+  # comment out dateideas
+  post 'dateideas' => 'dateideas#create'
+   # Get login token from Knock
   post 'user_token' => 'user_token#create'
+
+  # User actions
+  post '/users/create' => 'users#create'
 end
 
 
