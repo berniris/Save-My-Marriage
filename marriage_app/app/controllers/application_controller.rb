@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
   include Knock::Authenticable
-  prepend_before_action :authenticate_user
+  before_action :authenticate_user!, except: [:new, :create]
 
 end
