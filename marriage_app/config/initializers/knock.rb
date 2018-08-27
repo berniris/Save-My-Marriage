@@ -56,4 +56,4 @@ Knock.setup do |config|
 #   #
 #   # Default:
 #   config.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
-# end
+end

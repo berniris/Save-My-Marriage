@@ -9,7 +9,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Resources from './components/Resources';
 import DateIdeas from './components/date_ideas/DateIdeas';
-import BetterDoctor from './components/BetterDoctor';
+import BetterDoctor from './components/find_counselor/BetterDoctor';
 import authService from './services/authService';
 import dateService from './services/dateService';
 
