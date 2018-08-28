@@ -8,16 +8,24 @@ class BetterDoctor extends Component {
 constructor (props) {
   super(props);
   this.state = {
+    body: "",
     doctors: [],
     lat: '',
     lng: '',
     baseurl: 'https://api.betterdoctor.com/2016-03-01/doctors?'
   }
-    this.getDoctorData = this.getDoctorData.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getAddress = this.getAddress.bind(this)
+}
+
+handleSubmit(e) {
+  e.preventDefault();
+  this.getAddress();
 }
 
 handleChange(e) {
+  e.preventDefault() 
   this.setState({
   [e.target.name]: e.target.value
   })
@@ -32,9 +40,10 @@ Geocode.enableDebug();
 }
 
 getAddress() {
-Geocode.fromAddress("ny")
+Geocode.fromAddress(this.state.body)
 .then(response => {
     const { lat, lng } = response.results[0].geometry.location;
+    console.log(lat, lng)
     this.setState({
     lat: lat,
     lng: lng
@@ -44,32 +53,34 @@ Geocode.fromAddress("ny")
     console.error(error);
   },
 )
-this.getDoctorData();
+this.getDoctorData()
 }
 
 
 getDoctorData () {
   let url = new URL("https://api.betterdoctor.com/2016-03-01/doctors?"),
-  params = `specialty_uid=psychologist&location=${this.state.lat},${this.state.lng},100&skip=2&limit=10&user_key=6d011bef8ed81cebe9760f2e5b00bed1`
+  params = `specialty_uid=psychologist&location=${this.state.lat},${this.state.lng},10&skip=2&limit=10&user_key=6d011bef8ed81cebe9760f2e5b00bed1`
+  console.log(`${url}${params}`)
   fetch(`${url}${params}`)
   .then(response => {
     return response.json();
   }).then(data => {
-    this.setState({doctors: data.data});
+    this.setState({
+      doctors: data.data
+    });
     console.log("doctors", this.state.doctors)
   })
   .catch(err => console.log(err))
 }
 
 componentDidMount() {
-  // remember to delete cookies & clear storage from 
-  // Application panel in developer tools so that you 
-  // stop getting 429  
+  this.getAddress();
+
+  //remember to clear cookies from the Application tab to reset access to API 
 }
 
 
 render() {
-  console.log(this.getAddress())
   console.log(this.state.lat + "," + this.state.lng)
   const doctors = this.state.doctors.map(doctor => {
     return (
@@ -91,9 +102,9 @@ render() {
     <div className="flex">
     <div className="infobox-1">
     <p>Would you like to speak to someone in person? Please enter your zipcode to see available counselors in your area</p>
-        <form onSubmit={this.handleCreateDateFormSubmit}>
-        <div className="idea-form">
-          <label htmlFor="dateidea">Enter your city and state:</label>
+        <form onSubmit={this.handleSubmit}>
+        <div className="doctor-search-form">
+          <label htmlFor="doctor-search">Enter your city and state:</label>
             <input
                     value={this.state.body}
                     type="text"
