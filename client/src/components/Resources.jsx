@@ -16,7 +16,7 @@ return (
 <button><Link to="/dateideas">Date Ideas</Link></button>
 </div>
  <div className="infobox-2">
-<p>We are in the process of growing our content! Access to a monthly free gift from our gift shop and unlimited access to our mediation app will be available for a monthly fee off $19.99. Both features coming soon! </p>
+<p>We are in the process of growing our content! Receive a free gift every month from our online store and unlimited access to our mediation app. All available for a low monthly fee off $19.99. Coming soon! </p>
 {/*<button><Link to="/tracker">Disagreement Tracker</Link></button>*/}
 </div>
 </div>
