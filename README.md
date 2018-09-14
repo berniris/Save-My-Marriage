@@ -58,5 +58,3 @@ Users are able to:
 * Profile page with separated sections for saved date ideas, saved argument tracker, and saved gifts
 * Cart functionality to purchase gifts like flowers, spa gift cards, etc. 
 
-# Obstacles
-* My original vision was to have a profile page and the rest of my logic in developing out my site depended on having this functionality working. I spent nearly the entire week working on getting AUTH set up so I could create the profile page and ended up running of time to implement most of my MVP ideas. I learned a lot about Rails and a decent bit aout Ruby but in the future I need to know when to abandon something that's not working and move on when facing deadlines. 
