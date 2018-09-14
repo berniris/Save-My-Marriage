@@ -13,7 +13,7 @@ return (
     <div className="flex">
      <div className="infobox-1">
 <p>Introduce some spontaneity back into your relationship with these unique date ideas. Click below to find some inspiraion. </p>
-<button><Link to="/dateideas">Date Ideas</Link></button>
+<Link to="/dateideas"><button>Date Ideas</button></Link>
 </div>
  <div className="infobox-2">
 <p>We are in the process of growing our content! Receive a free gift every month from our online store and unlimited access to our mediation app. All available for a low monthly fee off $19.99. Coming soon! </p>

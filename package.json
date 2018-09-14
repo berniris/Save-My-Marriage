@@ -1,0 +1,19 @@
+{
+  "name": "save-my-marriage",
+  "version": "1.0.0",
+  "description": "Simple lifestyle app I created to practice CRUD with Rails &amp; React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berniris/Save-My-Marriage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berniris/Save-My-Marriage/issues"
+  },
+  "homepage": "https://github.com/berniris/Save-My-Marriage#readme"
+}
