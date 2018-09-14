@@ -6,7 +6,7 @@ import '../App.css';
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.handleLogout = this.handleLogout.bind(this)
+    this.handleLogout = this.handleLogout.bind(this) test
 
 }
 
