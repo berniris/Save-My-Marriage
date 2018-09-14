@@ -89,7 +89,7 @@ h1 {
 .counselor {
     width: 580px;
     height: 300px;
-    background-color: grey;
+    background-color: #ffffff;
     box-sizing: border-box;
     padding: 10px;
     margin: 1.66%;
@@ -121,7 +121,7 @@ h1 {
     font-size: 20px;
 }
 
-{
+<<<<<<< HEAD {
     .doctor-search-form {
         border: 1px solid #000000;
     }
@@ -231,6 +231,152 @@ h1 {
     }
     /* Scrollbar */
     /* width */
+     ::-webkit-scrollbar {
+        width: 20px;
+    }
+    /* Track */
+     ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+    /* Handle */
+     ::-webkit-scrollbar-thumb {
+        background: #000000;
+        border-radius: 10px;
+    }
+    /*Date Component*/
+    .date-idea {
+        background-color: #ffffff;
+        width: 50%;
+        height: 50%;
+        font-size: 30px;
+        text-transform: uppercase;
+        margin-left: auto;
+    }
+    .date-ideas {
+        height: 100px;
+    }
+    .idea {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+    }
+    .idea-form {
+        margin-top: 100px;
+        flex: 1;
+        margin: 0 auto;
+        width: 400px;
+        margin-top: 30px;
+    }
+    input {
+        background-color: white;
+        color: #000000;
+        border: none;
+        outline: none;
+        width: 150px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #000000;
+    }
+    .doctor-search-form {
+        border: 1px solid #000000;
+    }
+    button {
+        font-size: 35px;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        background-color: #ffffff;
+        width: 400px;
+        height: 90px;
+        letter-spacing: 8px;
+        border: 1px solid #ffffff;
+        z-index: 1;
+        margin: 0 auto;
+        display: block;
+        text-decoration-style: none;
+    }
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 200;
+    }
+    /* Navigation */
+    .pitch {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+    .promotion {
+        margin-top: 2%;
+        position: relative;
+    }
+    .menu,
+    .pitch {
+        background: #000000;
+        position: relative;
+        z-index: 100;
+        height: 70px;
+        top: 55%;
+        width: 100%;
+        color: #ffffff;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        border-top: 1px solid #ffffff;
+    }
+    .menu ul {
+        /*position: absolute;*/
+        /*text-align: center;*/
+        display: flex;
+        align-items: right;
+        justify-content: space-around;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .menu li {
+        display: block;
+        flex: 0 1 auto;
+        list-style-type: none;
+        padding: 20px;
+    }
+    /* Links */
+    .menu a:link {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .menu a:visited {
+        color: #ffffff;
+    }
+    .menu a:hover {
+        color: grey;
+    }
+    .menu a:active {
+        color: #ffffff;
+    }
+    a:link {
+        color: grey;
+        text-decoration: none;
+    }
+    a:visited {
+        color: grey;
+    }
+    a:hover {
+        color: grey;
+    }
+    a:active {
+        color: grey;
+    }
+    /* Login */
+    .login,
+    .register {
+        text-transform: uppercase;
+        margin: 0 auto;
+        width: 400px;
+    }
+    /* Scrollbar */
+    /* width */
     ::-webkit-scrollbar {
         width: 20px;
     }
@@ -275,6 +421,4 @@ h1 {
         width: 150px;
         padding: 15px;
         margin-bottom: 20px;
-        <<<<<<< HEAD border: 1px solid #000000;
-        =======>>>>>>>868ab37c95aebc1b50d7979d9fff92b37a54a1ff
     }

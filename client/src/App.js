@@ -64,7 +64,6 @@ class App extends Component {
 
     handleLogin(input) {
         authService.login(input)
-<<<<<<< HEAD
             .then(user => {
                 this.setState({
                     user,
@@ -73,11 +72,12 @@ class App extends Component {
             })
         this.props.history.push('/');
         this.getCalls();
-=======
         console.log("hello")
         this.props.history.push('/');
         // this.getCalls();
->>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
+        console.log("hello")
+        this.props.history.push('/');
+        // this.getCalls();
         // window.location.reload();
     }
 
@@ -98,7 +98,6 @@ class App extends Component {
 
     isLoggedIn() {
         authService.checkToken().then(user => {
-<<<<<<< HEAD
                 this.setState({
                         user,
                         loggedInError: false
@@ -107,104 +106,101 @@ class App extends Component {
             })
             .catch(err => this.setState({ loggedInError: true }))
             .then(console.log(this.state.user))
-=======
-                this.setState({ user })
-            })
-            .catch(err => this.setState({ loggedInError: true }))
->>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
-    }
+        this.setState({ user })
+    })
+.catch(err => this.setState({ loggedInError: true }))
+this.setState({ user })
+})
+.catch(err => this.setState({ loggedInError: true }))
+}
 
-    componentDidMount() {
-        // this.getCalls();
-        this.isLoggedIn();
-    }
+componentDidMount() {
+    // this.getCalls();
+    this.isLoggedIn();
+}
 
-    componentWillUnmount() {
-        clearInterval(this.intervalId)
-    }
+componentWillUnmount() {
+    clearInterval(this.intervalId)
+}
 
 
-    render() {
-<<<<<<< HEAD
-            console.log(this.state.user)
-=======
-
->>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
-            return ( <
-                    main >
+render() {
+        console.log(this.state.user)
+        return ( <
+                main >
+                <
+                div >
+                <
+                Route exact path = "/"
+                render = {
+                    props =>
                     <
                     div >
                     <
-                    Route exact path = "/"
-                    render = {
-                        props =>
-                        <
-                        div >
-                        <
-                        Nav
-                        user = { this.state.user }
-                        loggedIn = { this.isLoggedIn }
-                        logout = { this.handleLogout }
-                        /> <
-                        Logo / >
-                        <
-                        Home / >
-                        <
-                        /div>
-                    }
+                    Nav
+                    user = { this.state.user }
+                    loggedIn = { this.isLoggedIn }
+                    logout = { this.handleLogout }
                     /> <
-                    Route path = "/:id"
-                    render = {
-                        props =>
-                        <
-                        div >
-                        <
-                        Nav
-                        user = { this.state.user }
-                        loggedIn = { this.isLoggedIn }
-                        logout = { this.handleLogout }
-                        /> <
-                        Logo / >
-                        <
-                        /div>
-                    }
+                    Logo / >
+                    <
+                    Home / >
+                    <
+                    /div>
+                }
+                /> <
+                Route path = "/:id"
+                render = {
+                    props =>
+                    <
+                    div >
+                    <
+                    Nav
+                    user = { this.state.user }
+                    loggedIn = { this.isLoggedIn }
+                    logout = { this.handleLogout }
                     /> <
-                    Route path = "/dateideas"
-                    render = {
-                        () => ( <
-                            DateIdeas dateideas = { this.state.dateideas }
-                            dateID = { this.state.dateID }
-                            onSubmit = { this.createDateIdea }
-                            onDelete = { this.deleteDateIdea }
-                            />
-                        )
-                    }
-                    /> <
-                    Route path = "/login"
-                    render = {
-                        ({ history }) => ( <
-                            Login handleLogin = { this.handleLogin }
-                            />)} / >
-                            <
-                            Route path = "/register"
-                            render = {
-                                ({ history }) => ( <
-                                    Register handleRegister = { this.handleRegister }
-                                    />)} / >
-                                    <
-                                    Route exact path = "/counseling"
-                                    render = {
-                                        () => ( < BetterDoctor / > )
-                                    }
-                                    /> <
-                                    Route exact path = "/tips"
-                                    render = {
-                                        () => ( < Resources / > )
-                                    }
-                                    /> </div > < /main>
-                                );
-                            }
-
+                    Logo / >
+                    <
+                    /div>
+                }
+                /> <
+                Route path = "/dateideas"
+                render = {
+                    () => ( <
+                        DateIdeas dateideas = { this.state.dateideas }
+                        dateID = { this.state.dateID }
+                        onSubmit = { this.createDateIdea }
+                        onDelete = { this.deleteDateIdea }
+                        />
+                    )
+                }
+                /> <
+                Route path = "/login"
+                render = {
+                    ({ history }) => ( <
+                        Login handleLogin = { this.handleLogin }
+                        />)} / >
+                        <
+                        Route path = "/register"
+                        render = {
+                            ({ history }) => ( <
+                                Register handleRegister = { this.handleRegister }
+                                />)} / >
+                                <
+                                Route exact path = "/counseling"
+                                render = {
+                                    () => ( < BetterDoctor / > )
+                                }
+                                /> <
+                                Route exact path = "/tips"
+                                render = {
+                                    () => ( < Resources / > )
+                                }
+                                /> </div > < /main>
+                            );
                         }
 
-                        export default App;
+                    }
+
+                    export default App;
