@@ -64,6 +64,7 @@ class App extends Component {
 
     handleLogin(input) {
         authService.login(input)
+<<<<<<< HEAD
             .then(user => {
                 this.setState({
                     user,
@@ -72,6 +73,11 @@ class App extends Component {
             })
         this.props.history.push('/');
         this.getCalls();
+=======
+        console.log("hello")
+        this.props.history.push('/');
+        // this.getCalls();
+>>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
         // window.location.reload();
     }
 
@@ -92,6 +98,7 @@ class App extends Component {
 
     isLoggedIn() {
         authService.checkToken().then(user => {
+<<<<<<< HEAD
                 this.setState({
                         user,
                         loggedInError: false
@@ -100,6 +107,11 @@ class App extends Component {
             })
             .catch(err => this.setState({ loggedInError: true }))
             .then(console.log(this.state.user))
+=======
+                this.setState({ user })
+            })
+            .catch(err => this.setState({ loggedInError: true }))
+>>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
     }
 
     componentDidMount() {
@@ -113,7 +125,11 @@ class App extends Component {
 
 
     render() {
+<<<<<<< HEAD
             console.log(this.state.user)
+=======
+
+>>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
             return ( <
                     main >
                     <

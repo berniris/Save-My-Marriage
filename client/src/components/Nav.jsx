@@ -15,7 +15,10 @@ handleLogout() {
 }
 
 render() {
+<<<<<<< HEAD
   console.log(this.props.user)
+=======
+>>>>>>> 868ab37c95aebc1b50d7979d9fff92b37a54a1ff
   return (
   
 <div>

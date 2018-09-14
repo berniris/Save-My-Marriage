@@ -104,7 +104,7 @@ render() {
     <p>Would you like to speak to someone in person? Please enter your zipcode to see available counselors in your area</p>
         <form onSubmit={this.handleSubmit}>
         <div className="doctor-search-form">
-          <label htmlFor="doctor-search">City or State</label>
+          <label htmlFor="doctor-search">Enter your city and state:</label>
             <input
                     value={this.state.body}
                     type="text"
