@@ -1,0 +1,2 @@
+*logs/development.log filter=lfs diff=lfs merge=lfs -text
+logs/development.log filter=lfs diff=lfs merge=lfs -text
