@@ -10,7 +10,7 @@ import Register from './components/auth/Register';
 import Resources from './components/Resources';
 import DateIdeas from './components/date_ideas/DateIdeas';
 import BetterDoctor from './components/find_counselor/BetterDoctor';
-import authService from './services/authService';
+import AuthService from './services/AuthService';
 import dateService from './services/dateService';
 
 
@@ -63,7 +63,7 @@ class App extends Component {
     }
 
     handleLogin(input) {
-        authService.login(input)
+        AuthService.login(input)
             .then(user => {
                 this.setState({
                     user,
@@ -83,13 +83,13 @@ class App extends Component {
 
 
     handleRegister(input) {
-        authService.register(input)
+        AuthService.register(input)
         this.props.history.push('/');
         // window.location.reload()
     }
 
     handleLogout() {
-        authService.destroyToken();
+        AuthService.destroyToken();
         this.setState({
             user: false
         })
@@ -97,7 +97,7 @@ class App extends Component {
     }
 
     isLoggedIn() {
-        authService.checkToken().then(user => {
+        AuthService.checkToken().then(user => {
                 this.setState({ user })
             })
             .catch(err => this.setState({ loggedInError: true }))

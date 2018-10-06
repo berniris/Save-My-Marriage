@@ -1,4 +1,4 @@
-    @import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /** {
@@ -121,7 +121,7 @@ h1 {
     font-size: 20px;
 }
 
-<<<<<<< HEAD <<<<<<< HEAD {
+    
     .doctor-search-form {
         border: 1px solid #000000;
     }
