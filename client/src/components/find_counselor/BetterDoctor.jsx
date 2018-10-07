@@ -32,7 +32,7 @@ handleChange(e) {
 }
 
 setKey () {
-Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBE2Q9CboNNsg');
+Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBboNNsg');
 }
 
 enableLogs() {
@@ -82,6 +82,7 @@ componentDidMount() {
 
 render() {
   console.log(this.state.lat + "," + this.state.lng)
+  console.log(this.state.body)
   const doctors = this.state.doctors.map(doctor => {
     return (
       <Doctor 

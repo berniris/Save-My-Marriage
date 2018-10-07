@@ -37,7 +37,6 @@ function login(input) {
     .then(res => {
      localStorage.setItem("jwt", res.jwt)
      })
-     .then(console.log("jwt"))
     .catch(err => console.log(err))
 }
 
