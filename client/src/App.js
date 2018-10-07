@@ -11,7 +11,7 @@ import Resources from './components/Resources';
 import DateIdeas from './components/date_ideas/DateIdeas';
 import BetterDoctor from './components/find_counselor/BetterDoctor';
 import AuthService from './services/AuthService';
-import dateService from './services/dateService';
+import DateService from './services/DateService';
 
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
 
 
     getDateIdeas() {
-        dateService.All()
+        DateService.All()
             .then(respBody =>
                 this.setState({
                     dateideas: respBody
@@ -42,7 +42,7 @@ class App extends Component {
     }
 
     createDateIdea(dateidea) {
-        dateService.Create(dateidea)
+        DateService.Create(dateidea)
             .then(respBody => {
                 this.setState({
                         dateID: respBody.id
@@ -54,7 +54,7 @@ class App extends Component {
     }
 
     deleteDateIdea(id) {
-        dateService.Delete(id)
+        DateService.Delete(id)
     }
 
     getCalls() {
@@ -64,21 +64,16 @@ class App extends Component {
 
     handleLogin(input) {
         AuthService.login(input)
-            .then(user => {
-                this.setState({
-                    user,
-                    loggedInError: false
-                })
-            })
-        this.props.history.push('/');
+        console.log(input)
+            // .then(user => {
+            //     this.setState({
+            //         user,
+            //         loggedInError: false
+            //     })
+            // })
         this.getCalls();
         console.log("hello")
-        this.props.history.push('/');
-        // this.getCalls();
-        console.log("hello")
-        this.props.history.push('/');
-        // this.getCalls();
-        // window.location.reload();
+        window.location.reload();
     }
 
 
@@ -115,16 +110,12 @@ class App extends Component {
 
     render() {
 
-            return ( <
-                    main >
+            return ( <main>
+                    <div>
                     <
-                    div >
-                    <
-                    Route exact path = "/"
-                    render = {
+                    Route exact path = "/" render = {
                         props =>
-                        <
-                        div >
+                        <div >
                         <
                         Nav
                         user = { this.state.user }
