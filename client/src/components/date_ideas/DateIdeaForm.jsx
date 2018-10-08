@@ -58,7 +58,7 @@ render () {
                     name="body"
                     onChange={this.handleChange} />
           </div>
-            <button type="submit" value="submit">Submit Idea</button>
+            <button type="submit" value="submit">Submit</button>
         </form>
       }
         </div>

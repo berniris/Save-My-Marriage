@@ -1722,3 +1722,1582 @@ Processing by DateideasController#index as */*
 Completed 200 OK in 132ms (Views: 1.4ms | ActiveRecord: 4.0ms)
 
 
+  [1m[35m (93.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (64.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1426.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "marriage_app_development"[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (952.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "marriage_app_test"[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (19832.5ms)[0m  [1m[35mCREATE DATABASE "marriage_app_development" ENCODING = 'unicode'[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (10551.4ms)[0m  [1m[35mCREATE DATABASE "marriage_app_test" ENCODING = 'unicode'[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35mSQL (32.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (18.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "dateideas" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (419.5ms)[0m  [1m[35mCREATE TABLE "dateideas" ("id" bigserial primary key, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (22.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "fights" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (112.8ms)[0m  [1m[35mCREATE TABLE "fights" ("id" bigserial primary key, "description" text, "reflection" text, "date" timestamp, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (63.9ms)[0m  [1m[35mCREATE  INDEX  "index_fights_on_user_id" ON "fights"  ("user_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:34
+  [1m[35m (90.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:34
+  [1m[35m (18.0ms)[0m  [1m[35mALTER TABLE "fights" ADD CONSTRAINT "fk_rails_926957ac3e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:42
+  [1m[35m (135.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180808071226)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180531180344),
+(20180531180616),
+(20180808065413);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (109.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (13.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-07 13:07:56.833266"], ["updated_at", "2018-10-07 13:07:56.833266"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35mSQL (2.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "dateideas" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (188.8ms)[0m  [1m[35mCREATE TABLE "dateideas" ("id" bigserial primary key, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "fights" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (111.9ms)[0m  [1m[35mCREATE TABLE "fights" ("id" bigserial primary key, "description" text, "reflection" text, "date" timestamp, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (133.9ms)[0m  [1m[35mCREATE  INDEX  "index_fights_on_user_id" ON "fights"  ("user_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:34
+  [1m[35m (119.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:34
+  [1m[35m (13.0ms)[0m  [1m[35mALTER TABLE "fights" ADD CONSTRAINT "fk_rails_926957ac3e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:42
+  [1m[35m (98.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180808071226)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180531180344),
+(20180531180616),
+(20180808065413);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (93.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-07 13:07:57.969868"], ["updated_at", "2018-10-07 13:07:57.969868"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (7.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-10-07 13:07:57.987841"], ["key", "environment"]]
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby24-x64/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (3.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Make a picnic"], ["created_at", "2018-10-07 13:07:58.247435"], ["updated_at", "2018-10-07 13:07:58.247435"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to a winery"], ["created_at", "2018-10-07 13:07:58.271399"], ["updated_at", "2018-10-07 13:07:58.271399"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go horseback riding"], ["created_at", "2018-10-07 13:07:58.282379"], ["updated_at", "2018-10-07 13:07:58.282379"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to a Jazz club"], ["created_at", "2018-10-07 13:07:58.291364"], ["updated_at", "2018-10-07 13:07:58.291364"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Have a game night"], ["created_at", "2018-10-07 13:07:58.300348"], ["updated_at", "2018-10-07 13:07:58.300348"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go strawberry picking"], ["created_at", "2018-10-07 13:07:58.311509"], ["updated_at", "2018-10-07 13:07:58.311509"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go on a museum date"], ["created_at", "2018-10-07 13:07:58.319497"], ["updated_at", "2018-10-07 13:07:58.319497"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Visit a pumpkin patch"], ["created_at", "2018-10-07 13:07:58.329483"], ["updated_at", "2018-10-07 13:07:58.329483"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go horseback riding"], ["created_at", "2018-10-07 13:07:58.340461"], ["updated_at", "2018-10-07 13:07:58.340461"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Take a pottery class"], ["created_at", "2018-10-07 13:07:58.349453"], ["updated_at", "2018-10-07 13:07:58.349453"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Take a painting class"], ["created_at", "2018-10-07 13:07:58.359744"], ["updated_at", "2018-10-07 13:07:58.359744"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to the opera"], ["created_at", "2018-10-07 13:07:58.368731"], ["updated_at", "2018-10-07 13:07:58.368731"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to the ballet"], ["created_at", "2018-10-07 13:07:58.377713"], ["updated_at", "2018-10-07 13:07:58.377713"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (0.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Take a cooking class"], ["created_at", "2018-10-07 13:07:58.386699"], ["updated_at", "2018-10-07 13:07:58.386699"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to a bed & breakfast"], ["created_at", "2018-10-07 13:07:58.395685"], ["updated_at", "2018-10-07 13:07:58.395685"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (0.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go see a play"], ["created_at", "2018-10-07 13:07:58.405673"], ["updated_at", "2018-10-07 13:07:58.405673"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to a cheese tasting"], ["created_at", "2018-10-07 13:07:58.427636"], ["updated_at", "2018-10-07 13:07:58.427636"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to karaokee"], ["created_at", "2018-10-07 13:07:58.454594"], ["updated_at", "2018-10-07 13:07:58.454594"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go antiquing"], ["created_at", "2018-10-07 13:07:58.462579"], ["updated_at", "2018-10-07 13:07:58.462579"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to the zoo"], ["created_at", "2018-10-07 13:07:58.470567"], ["updated_at", "2018-10-07 13:07:58.470567"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (31.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Visit a botanical garden"], ["created_at", "2018-10-07 13:07:58.478554"], ["updated_at", "2018-10-07 13:07:58.478554"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go bowling"], ["created_at", "2018-10-07 13:07:58.516521"], ["updated_at", "2018-10-07 13:07:58.516521"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Play laser tag"], ["created_at", "2018-10-07 13:07:58.524505"], ["updated_at", "2018-10-07 13:07:58.524505"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (2.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go ice skating or to the roller rink"], ["created_at", "2018-10-07 13:07:58.532493"], ["updated_at", "2018-10-07 13:07:58.532493"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go paintballing"], ["created_at", "2018-10-07 13:07:58.540483"], ["updated_at", "2018-10-07 13:07:58.540483"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Take a flamenco dancing class"], ["created_at", "2018-10-07 13:07:58.547472"], ["updated_at", "2018-10-07 13:07:58.547472"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (0.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go on a double date"], ["created_at", "2018-10-07 13:07:58.555455"], ["updated_at", "2018-10-07 13:07:58.555455"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Book a dinner cruise"], ["created_at", "2018-10-07 13:07:58.563445"], ["updated_at", "2018-10-07 13:07:58.563445"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go skydiving"], ["created_at", "2018-10-07 13:07:58.572429"], ["updated_at", "2018-10-07 13:07:58.572429"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go rockclimbing"], ["created_at", "2018-10-07 13:07:58.581415"], ["updated_at", "2018-10-07 13:07:58.581415"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "See a comedy show"], ["created_at", "2018-10-07 13:07:58.589402"], ["updated_at", "2018-10-07 13:07:58.589402"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go to an amusement park"], ["created_at", "2018-10-07 13:07:58.597392"], ["updated_at", "2018-10-07 13:07:58.597392"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go kayaking"], ["created_at", "2018-10-07 13:07:58.606375"], ["updated_at", "2018-10-07 13:07:58.606375"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mDateidea Create (1.0ms)[0m  [1m[32mINSERT INTO "dateideas" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Go skeetshooting"], ["created_at", "2018-10-07 13:07:58.615363"], ["updated_at", "2018-10-07 13:07:58.615363"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "bc@gmail.com"], ["password_digest", "$2a$10$y4enAeUY4oUjbdX2zSqhqOGPIX0J9NvdYQNMInQfSMdJwZNsyc7f2"], ["created_at", "2018-10-07 13:07:59.934291"], ["updated_at", "2018-10-07 13:07:59.934291"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:08:58 -0400
+Processing by DateideasController#index as */*
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:08:58 -0400
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (3.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 299ms (Views: 92.4ms | ActiveRecord: 7.0ms)
+
+
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (6.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:08:59 -0400
+  ↳ app/controllers/dateideas_controller.rb:7
+Processing by DateideasController#index as */*
+Completed 200 OK in 181ms (Views: 20.2ms | ActiveRecord: 9.0ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 81ms (Views: 1.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:00 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 48ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:01 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 40ms (Views: 2.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:02 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 76ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:03 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 34ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:04 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 49ms (Views: 2.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:05 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 1.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:06 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 88ms (Views: 1.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:07 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 32ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:08 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 2.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:09 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 40ms (Views: 1.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:10 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 47ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:11 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 54ms (Views: 1.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:12 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 62ms (Views: 11.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:13 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 25ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:14 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 2.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:15 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 24ms (Views: 2.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:16 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:17 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:18 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:19 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 34ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:20 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 39ms (Views: 2.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:21 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:22 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 47ms (Views: 2.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:23 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 40ms (Views: 2.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:24 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:25 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 41ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:26 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 36ms (Views: 2.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:27 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 42ms (Views: 2.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:28 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 44ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:29 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:30 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 2.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:31 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 41ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:32 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 34ms (Views: 1.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:33 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:34 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:35 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 22ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:36 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 35ms (Views: 1.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:37 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 26ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:38 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 38ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:39 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 81ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:40 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 1.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:41 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:42 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:43 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 23ms (Views: 1.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:44 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 2.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:45 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 25ms (Views: 2.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:46 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:47 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 24ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:48 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:49 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:50 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 38ms (Views: 1.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:51 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 42ms (Views: 2.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:52 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 36ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:53 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 41ms (Views: 3.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:54 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 26ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:55 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:56 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:57 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 25ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:58 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 38ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:09:59 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 25ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:00 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 35ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:01 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:02 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 22ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:03 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:04 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 1.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:05 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 25ms (Views: 1.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:06 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:07 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 35ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:08 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:09 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:10 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:11 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 23ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:12 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 24ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:13 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 2.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:14 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 1.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:15 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 29ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:16 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:17 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:18 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:19 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 39ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:20 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 25ms (Views: 1.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:21 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:22 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 1.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:23 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 29ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:24 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:25 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 18ms (Views: 1.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:26 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 26ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:27 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 23ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:28 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 34ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:29 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 20ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:30 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:31 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 40ms (Views: 1.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:32 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 26ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:33 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 2.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:34 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 29ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:35 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:36 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 29ms (Views: 1.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:37 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 37ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:38 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 1.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:39 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 23ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:40 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:41 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:42 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 98ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:43 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 26ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:44 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:45 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:46 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.1ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 39ms (Views: 1.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:47 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 36ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:48 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 19ms (Views: 1.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:49 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 23ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:50 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 2.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:51 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 24ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:52 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 21ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:53 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 23ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:54 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 27ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:55 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:56 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 2.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:57 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 45ms (Views: 1.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:58 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:10:59 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 30ms (Views: 1.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:00 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 32ms (Views: 1.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:01 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 28ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:02 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 29ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:03 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 20ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:04 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 38ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:05 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 31ms (Views: 1.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:06 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 34ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:07 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 44ms (Views: 3.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:08 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 33ms (Views: 1.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:09 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 24ms (Views: 1.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:10 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 29ms (Views: 2.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:11 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (1.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 46ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/dateideas" for 127.0.0.1 at 2018-10-07 09:11:12 -0400
+Processing by DateideasController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mDateidea Load (2.0ms)[0m  [1m[34mSELECT "dateideas".* FROM "dateideas"[0m
+  ↳ app/controllers/dateideas_controller.rb:7
+Completed 200 OK in 53ms (Views: 1.9ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/dateideas" for 127.0.0.1 at 2018-10-07 17:48:17 -0400
+Processing by DateideasController#create as */*
+  Parameters: {"dateidea"=>{"body"=>"Shoe shopping"}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 92ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/dateideas" for 127.0.0.1 at 2018-10-07 17:48:46 -0400
+Processing by DateideasController#create as */*
+  Parameters: {"dateidea"=>{"body"=>"shoe shopping"}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/api/dateideas/null" for 127.0.0.1 at 2018-10-07 17:49:40 -0400
+Processing by DateideasController#destroy as */*
+  Parameters: {"id"=>"null", "dateidea"=>{}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms)
+
+

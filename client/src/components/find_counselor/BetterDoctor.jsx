@@ -32,7 +32,7 @@ handleChange(e) {
 }
 
 setKey () {
-Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBboNNsg');
+Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBE2Q9CboNNsg');
 }
 
 enableLogs() {
@@ -74,8 +74,6 @@ getDoctorData () {
 }
 
 componentDidMount() {
-  this.getAddress();
-
   //remember to clear cookies from the Application tab to reset access to API 
 }
 
@@ -102,10 +100,11 @@ render() {
     </div>
     <div className="flex">
     <div className="infobox-1">
-    <p>Would you like to speak to someone in person? Please enter your zipcode to see available counselors in your area</p>
+    <p>Would you like to speak to someone in person? Search available counselors in your area.</p>
         <form onSubmit={this.handleSubmit}>
-        <div className="doctor-search-form">
-          <label htmlFor="doctor-search">Enter your city and state:</label>
+        <div>
+          <label htmlFor="doctor-search"><p>Enter your city and state:</p></label>
+            <br />
             <input
                     value={this.state.body}
                     type="text"

@@ -40,7 +40,6 @@ render() {
           Login
         </h1>
         <p>Need to create an account? Please click <a href="/register">here to register.</a></p>
-        <br/>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email: </label>
           <br />

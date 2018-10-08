@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-
 /** {
   border: 1px solid;
 }
 */
 
-
 /* "Home" */
-
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+    height: 460px;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid grey;
+}
 .splash-header {
     width: 100%;
     height: 360px;
@@ -17,8 +26,7 @@
     background-position: 50% 50%;
     opacity: .5;
 }
-
-.info-img {
+.infobox-couple {
     width: 580px;
     height: 300px;
     background-size: cover;
@@ -26,35 +34,15 @@
     background-position: 50% 50%;
     margin-top: -10px;
 }
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-
-.banner-img {
-    display: flex;
-    justify-content: center;
-    width: 90%;
-    height: 90vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px solid #000000;
-    padding: 100px;
-}
-
-.couple {
+.middle-couple {
     margin-top: 50px;
     width: 60%;
     height: 50%;
 }
-
 .middle-container {
     display: flex;
     justify-content: center;
 }
-
 .testimonial {
     float: right;
     width: 550px;
@@ -64,53 +52,74 @@
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
 }
-
-
 /* Layout */
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
 
 h1 {
     text-align: center;
 }
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    margin-top: 50px;
-    height: 440px;
-    width: 100%;
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.infobox-1,
-.infobox-2,
-.counselor {
-    width: 580px;
+.infobox-1, .infobox-2, .counselor {
+    width: 60%;
     height: 300px;
-    background-color: #ffffff;
+    background-color: grey;
     box-sizing: border-box;
     padding: 10px;
     margin: 1.66%;
     margin-top: -320px;
-    border: 2px solid #000000;
-    color: #000000;
+    border: 1px solid #000000;
+    color: #ffffff;
     z-index: 0;
     opacity: .8;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 .flex p {
     font-size: 20px;
+    margin-bottom: -10px;
 }
 
+.logo-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 200;
+}
+input {
+    background-color: white;
+    color: #000000;
+    border: none;
+    outline: none;
+    width: 150px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+}
+button {
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    width: 170px;
+    color: #000000;
+    height: 40px;
+    letter-spacing: 8px;
+    border: 1px solid #ffffff;
+    z-index: 1;
+    margin: 0 auto;
+    text-decoration-style: none;
+}
+/* Better Doctor API */
+
+.doctor-search {
+    margin-bottom: -50px;
+}
 .counselor {
     overflow: scroll;
 }
-
 .doctor {
     padding: 30px;
     flex-basis: 50%;
@@ -121,449 +130,155 @@ h1 {
     font-size: 20px;
 }
 
-    
-    .doctor-search-form {
-        border: 1px solid #000000;
-    }
-    button {
-        font-size: 35px;
-        font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
-        background-color: #ffffff;
-        width: 400px;
-        color: #000000;
-        height: 90px;
-        letter-spacing: 8px;
-        height: 90px;
-        letter-spacing: 8px;
-        border: 1px solid #ffffff;
-        z-index: 1;
-        margin: 0 auto;
-        display: block;
-        text-decoration-style: none;
-    }
-    .logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 200;
-    }
-    /* Navigation */
-    .pitch {
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 15px;
-        letter-spacing: 2px;
-    }
-    .promotion {
-        margin-top: 2%;
-        position: relative;
-    }
-    .menu,
-    .pitch {
-        background: #000000;
-        position: relative;
-        z-index: 100;
-        height: 70px;
-        top: 55%;
-        width: 100%;
-        color: #ffffff;
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 0px;
-        text-transform: uppercase;
-        border-top: 1px solid #ffffff;
-    }
-    .menu ul {
-        /*position: absolute;*/
-        /*text-align: center;*/
-        display: flex;
-        align-items: right;
-        justify-content: space-around;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .menu li {
-        display: block;
-        flex: 0 1 auto;
-        list-style-type: none;
-        padding: 20px;
-    }
-    /* Links */
-    .menu a:link {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    .menu a:visited {
-        color: #ffffff;
-    }
-    .menu a:hover {
-        color: grey;
-    }
-    .menu a:active {
-        color: #ffffff;
-    }
-    a:link {
-        color: grey;
-        text-decoration: none;
-    }
-    a:visited {
-        color: #ffffff;
-    }
-    a:hover {
-        color: #ffffff;
-    }
-    a:active {
-        color: #ffffff;
-    }
-    a:hover {
-        color: grey;
-    }
-    a:active {
-        color: grey;
-    }
-    /* Login */
-    .login,
-    .register {
-        text-transform: uppercase;
-        margin: 0 auto;
-        width: 400px;
-    }
-    /* Scrollbar */
-    /* width */
-     ::-webkit-scrollbar {
-        width: 20px;
-    }
-    /* Track */
-     ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-    }
-    /* Handle */
-     ::-webkit-scrollbar-thumb {
-        background: #000000;
-        border-radius: 10px;
-    }
-    /*Date Component*/
-    .date-idea {
-        background-color: #ffffff;
-        width: 50%;
-        height: 50%;
-        font-size: 30px;
-        text-transform: uppercase;
-        margin-left: auto;
-    }
-    .date-ideas {
-        height: 100px;
-    }
-    .idea {
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-    }
-    .idea-form {
-        margin-top: 100px;
-        flex: 1;
-        margin: 0 auto;
-        width: 400px;
-        margin-top: 30px;
-    }
-    input {
-        background-color: white;
-        color: #000000;
-        border: none;
-        outline: none;
-        width: 150px;
-        padding: 15px;
-        margin-bottom: 20px;
-        border: 1px solid #000000;
-    }
-    .doctor-search-form {
-        border: 1px solid #000000;
-    }
-    button {
-        font-size: 35px;
-        font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
-        background-color: #ffffff;
-        width: 400px;
-        height: 90px;
-        letter-spacing: 8px;
-        border: 1px solid #ffffff;
-        z-index: 1;
-        margin: 0 auto;
-        display: block;
-        text-decoration-style: none;
-    }
-    .logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 200;
-    }
-    /* Navigation */
-    .pitch {
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 15px;
-        letter-spacing: 2px;
-    }
-    .promotion {
-        margin-top: 2%;
-        position: relative;
-    }
-    .menu,
-    .pitch {
-        background: #000000;
-        position: relative;
-        z-index: 100;
-        height: 70px;
-        top: 55%;
-        width: 100%;
-        color: #ffffff;
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 0px;
-        text-transform: uppercase;
-        border-top: 1px solid #ffffff;
-    }
-    .menu ul {
-        /*position: absolute;*/
-        /*text-align: center;*/
-        display: flex;
-        align-items: right;
-        justify-content: space-around;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .menu li {
-        display: block;
-        flex: 0 1 auto;
-        list-style-type: none;
-        padding: 20px;
-    }
-    /* Links */
-    .menu a:link {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    .menu a:visited {
-        color: #ffffff;
-    }
-    .menu a:hover {
-        color: grey;
-    }
-    .menu a:active {
-        color: #ffffff;
-    }
-    a:link {
-        color: grey;
-        text-decoration: none;
-    }
-    a:visited {
-        color: grey;
-    }
-    a:hover {
-        color: grey;
-    }
-    a:active {
-        color: grey;
-    }
-    /* Login */
-    .login,
-    .register {
-        text-transform: uppercase;
-        margin: 0 auto;
-        width: 400px;
-    }
-    /* Scrollbar */
-    /* width */
-     ::-webkit-scrollbar {
-        width: 20px;
-    }
-    /* Track */
-     ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-    }
-    /* Handle */
-     ::-webkit-scrollbar-thumb {
-        background: #000000;
-        border-radius: 10px;
-    }
-    /*Date Component*/
-    .date-idea {
-        background-color: #ffffff;
-        width: 50%;
-        height: 50%;
-        font-size: 30px;
-        text-transform: uppercase;
-        margin-left: auto;
-    }
-    .date-ideas {
-        height: 100px;
-    }
-    .idea {
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-    }
-    .idea-form {
-        margin-top: 100px;
-        flex: 1;
-        margin: 0 auto;
-        width: 400px;
-        margin-top: 30px;
-    }
-    input {
-        background-color: white;
-        color: #000000;
-        border: none;
-        outline: none;
-        width: 150px;
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-    =======.doctor-search-form {
-        border: 1px solid #000000;
-    }
-    button {
-        font-size: 35px;
-        font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
-        background-color: #ffffff;
-        width: 400px;
-        height: 90px;
-        letter-spacing: 8px;
-        border: 1px solid #ffffff;
-        z-index: 1;
-        margin: 0 auto;
-        display: block;
-        text-decoration-style: none;
-    }
-    .logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 200;
-    }
-    /* Navigation */
-    .pitch {
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 15px;
-        letter-spacing: 2px;
-    }
-    .promotion {
-        margin-top: 2%;
-        position: relative;
-    }
-    .menu,
-    .pitch {
-        background: #000000;
-        position: relative;
-        z-index: 100;
-        height: 70px;
-        top: 55%;
-        width: 100%;
-        color: #ffffff;
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 0px;
-        text-transform: uppercase;
-        border-top: 1px solid #ffffff;
-    }
-    .menu ul {
-        /*position: absolute;*/
-        /*text-align: center;*/
-        display: flex;
-        align-items: right;
-        justify-content: space-around;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .menu li {
-        display: block;
-        flex: 0 1 auto;
-        list-style-type: none;
-        padding: 20px;
-    }
-    /* Links */
-    .menu a:link {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    .menu a:visited {
-        color: #ffffff;
-    }
-    .menu a:hover {
-        color: grey;
-    }
-    .menu a:active {
-        color: #ffffff;
-    }
-    a:link {
-        color: grey;
-        text-decoration: none;
-    }
-    a:visited {
-        color: grey;
-    }
-    a:hover {
-        color: grey;
-    }
-    a:active {
-        color: grey;
-    }
-    /* Login */
-    .login,
-    .register {
-        text-transform: uppercase;
-        margin: 0 auto;
-        width: 400px;
-    }
-    /* Scrollbar */
-    /* width */
-    ::-webkit-scrollbar {
-        width: 20px;
-    }
-    /* Track */
-    ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
-    }
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #000000;
-        border-radius: 10px;
-    }
-    /*Date Component*/
-    .date-idea {
-        background-color: #ffffff;
-        width: 50%;
-        height: 50%;
-        font-size: 30px;
-        text-transform: uppercase;
-        margin-left: auto;
-    }
-    .date-ideas {
-        height: 100px;
-    }
-    .idea {
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-    }
-    .idea-form {
-        margin-top: 100px;
-        flex: 1;
-        margin: 0 auto;
-        width: 400px;
-        margin-top: 30px;
-    }
-    input {
-        background-color: white;
-        color: #000000;
-        border: none;
-        outline: none;
-        width: 150px;
-        padding: 15px;
-        margin-bottom: 20px;
-    }
+/* Navigation */
+
+.pitch {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+.promotion {
+    margin-top: 2%;
+    position: relative;
+}
+.menu, .pitch {
+    background: #000000;
+    position: relative;
+    z-index: 100;
+    height: 70px;
+    top: 55%;
+    width: 100%;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    border-top: 1px solid #ffffff;
+}
+.menu a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+.menu a:visited {
+    color: #ffffff;
+}
+.menu a:hover {
+    color: grey;
+}
+.menu a:active {
+    color: #ffffff;
+}
+.menu ul {
+    display: flex;
+    align-items: right;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    display: block;
+    flex: 0 1 auto;
+    list-style-type: none;
+    padding: 20px;
+}
+
+/* Links */
+
+a:link {
+    color: #4C393A;
+    text-decoration: none;
+}
+a:visited {
+    color: #4C393A;
+}
+a:active {
+    color: #4C393A;
+}
+a:hover {
+    color: #000000;
+}
+/* Login */
+
+.login, .register {
+    text-transform: uppercase;
+    margin: 0 auto;
+    width: 400px;
+    height: 440px;
+}
+/* Scrollbar */
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+/* Track */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 10px;
+}
+/*Date Component*/
+
+.date-idea {
+    background-color: #ffffff;
+    width: 50%;
+    height: 50%;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-left: auto;
+}
+.date-ideas {
+    height: 100px;
+}
+.idea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+.idea-form {
+    margin-top: 100px;
+    flex: 1;
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 30px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+.infobox-1, .infobox-2, .counselor {
+    height: 170px;
+    padding: 10px;
+    margin: 1.66%;
+    margin-top: -220px;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+.container {
+    height: 360px;
+}
+
+.splash-header {
+    height: 260px;
+}
+
+.logo img {
+    height: 200px;
+    width: auto; 
+}
+
+.flex p {
+    font-size: 14px;
+    margin-bottom: -20px;
+}
+}

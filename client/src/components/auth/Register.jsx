@@ -36,8 +36,7 @@ render() {
         <h1 className="header">
           Register
         </h1>
-        <p>Already have an account? Please click <a href="/register">here to login.</a></p>
-        <br/>    
+        <p>Already have an account? Please click <a href="/register">here to login.</a></p>    
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email: </label>
           <br />
