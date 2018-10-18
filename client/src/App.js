@@ -65,15 +65,13 @@ class App extends Component {
     handleLogin(input) {
         AuthService.login(input)
         console.log(input)
-            // .then(user => {
-            //     this.setState({
-            //         user,
-            //         loggedInError: false
-            //     })
-            // })
+            .then(input => {
+                this.setState({
+                    input,
+                    loggedInError: false
+                })
+            })
         this.getCalls();
-        console.log("hello")
-        window.location.reload();
     }
 
 
