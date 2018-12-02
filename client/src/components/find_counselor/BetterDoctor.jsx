@@ -31,16 +31,16 @@ handleChange(e) {
   })
 }
 
-setKey () {
-Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBE2Q9CboNNsg');
-}
+// setKey () {
+// Geocode.setApiKey('AIzaSyCahbTylmYY7urc_nF7MhdBE2Q9CboNNsg');
+// }
 
 enableLogs() {
 Geocode.enableDebug();
 }
 
 getAddress() {
-Geocode.fromAddress(this.state.body)
+Geocode.fromAddress('this.state.body')
 .then(response => {
     const { lat, lng } = response.results[0].geometry.location;
     console.log(lat, lng)
@@ -55,7 +55,6 @@ Geocode.fromAddress(this.state.body)
 )
 this.getDoctorData()
 }
-
 
 getDoctorData () {
   let url = new URL("https://api.betterdoctor.com/2016-03-01/doctors?"),
@@ -79,8 +78,8 @@ componentDidMount() {
 
 
 render() {
-  console.log(this.state.lat + "," + this.state.lng)
-  console.log(this.state.body)
+  // console.log(this.state.lat + "," + this.state.lng)
+  // console.log(this.state.body)
   const doctors = this.state.doctors.map(doctor => {
     return (
       <Doctor 

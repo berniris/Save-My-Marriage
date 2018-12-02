@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Nord Medium";
+    src: url("./fonts/Nord Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Nord Bold";
+    src: url("./fonts/Nord Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Millennium-Round";
+    src: url("./fonts/Millennium-Round.otf") format("opentype");
+}
+
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 /** {
@@ -10,7 +25,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nord Bold';
     margin-top: 50px;
     height: 460px;
     width: 100%;
@@ -49,7 +64,7 @@
     max-height: 100px;
     margin-right: 50px;
     margin-top: 50px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nord Bold';
     font-size: 13px;
 }
 /* Layout */
@@ -68,6 +83,7 @@ h1 {
     box-sizing: border-box;
     padding: 10px;
     margin: 1.66%;
+    overflow: auto;
     margin-top: -320px;
     border: 1px solid #000000;
     color: #ffffff;
@@ -118,7 +134,7 @@ button {
     margin-bottom: -50px;
 }
 .counselor {
-    overflow: scroll;
+    overflow: auto;
 }
 .doctor {
     padding: 30px;
@@ -150,7 +166,7 @@ button {
     top: 55%;
     width: 100%;
     color: #ffffff;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Nord Bold';
     letter-spacing: 0px;
     text-transform: uppercase;
     border-top: 1px solid #ffffff;
@@ -231,7 +247,7 @@ a:hover {
     background-color: #ffffff;
     width: 50%;
     height: 50%;
-    font-size: 30px;
+    font-size: 50px;
     text-transform: uppercase;
     margin-left: auto;
 }
